@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Physic App</title>
+        <title>Admin - Numerical Solver</title>
         <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
         <!--Import Google Icon Font-->
         <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -116,17 +116,9 @@
                         <div id="tabAddNumerical" class="col s12 tabNumericals">
                             <form class="col s12">
                                 <div class="row">
-                                    <div class="input-field col s4">
+                                    <div class="input-field col s9">
                                         <input id="txtNumIdentifier" type="text" class="validate">
                                         <label for="txtNumIdentifier">Identifier</label>
-                                    </div>
-                                    <!--                                    <div class="input-field col s3">
-                                                                            <input id="txtNumStatement" type="text" class="validate">
-                                                                            <label for="txtNumStatement">Statement</label>
-                                                                        </div>-->
-                                    <div class="input-field col s5">
-                                        <input id="txtNumSolution" type="text" class="validate">
-                                        <label for="txtNumSolution">Solution</label>
                                     </div>
                                     <div class="input-field col s3">
                                         <button class="btn-floating btn-large waves-effect waves-light red" type="button" name="btnAddNumerical">
@@ -154,7 +146,7 @@
                 </div>
                 <!-- -------------------
                 END SECTION: STATEMENTS -->
-                
+
                 <!-- BEGIN SECTION: FORMULA -->
                 <div class="container">
                     <h5>Formula For Numerical 3</h5>
@@ -185,7 +177,7 @@
                         <div class="col s12">
                             <ul class="tabs margin-bottom-20">
                                 <li class="tab col s3"><a class="active" href="#tabParams">Parameters</a></li>
-                                <li class="tab col s3"><a href="#tabAddParam">Add New Parameter</a></li>
+                                <li class="tab col s3"><a href="#tabAddParam">Add New</a></li>
                             </ul>
                         </div>
                         <div id="tabParams" class="col s12 tabParams">
@@ -248,14 +240,14 @@
                 </div>
                 <!-- -------------------
                 END SECTION: PARAMETERS -->
-                
+
                 <!-- BEGIN SECTION: UNITS -->
                 <div class="container">
                     <div class="row">
                         <div class="col s12">
                             <ul class="tabs margin-bottom-20">
                                 <li class="tab col s3"><a class="active" href="#tabUnits">Units</a></li>
-                                <li class="tab col s3"><a href="#tabAddUnit">Add New Unit</a></li>
+                                <li class="tab col s3"><a href="#tabAddUnit">Add New</a></li>
                             </ul>
                         </div>
                         <div id="tabUnits" class="col s12 tabRegion">
