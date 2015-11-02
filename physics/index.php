@@ -1,4 +1,3 @@
-<?PHP require_once 'include/pre.php'; ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -27,17 +26,11 @@
                             </ul>
                         </div>
                         <div id="tabChapters" class="col s12 tabChapters">
-                            <a id="selectedChapter" class='dropdown-button btn' href='#' data-beloworigin="true" data-activates='ddChapters'>Select Chapter</a>
+                            <a class='dropdown-button btn' href='#' data-beloworigin="true" data-activates='ddChapters'>Select Chapter</a>
                             <ul id='ddChapters' class='dropdown-content'>
-                                <?PHP
-                                if ($chapters > 0) {
-                                    foreach ($chapters as $key => $chap) {
-                                        ?>
-                                        <li><a href="javascript:;" class="chapter"><?PHP echo $chap['name']; ?></a><a class="deleteChapter" data-id="<?PHP echo $chap['id']; ?>">X</a></li>
-                                        <?PHP
-                                    }
-                                }
-                                ?>
+                                <li><a href="javascript:;" class="chapter">Chapter one</a></li>
+                                <li><a href="javascript:;" class="chapter">Chapter two</a></li>
+                                <li><a href="javascript:;" class="chapter">Chapter three</a></li>
                             </ul>
                         </div>
                         <div id="tabAddChapter" class="col s12 tabChapters">
@@ -48,7 +41,7 @@
                                         <label for="txtChapterName">Chapter</label>
                                     </div>
                                     <div class="input-field col s3">
-                                        <button type="button" name="btnAddChapter" id="btnAddChapter" class="btn-floating btn-large waves-effect waves-light red" >
+                                        <button class="btn-floating btn-large waves-effect waves-light red" type="button" name="btnAddChapter">
                                             <i class="material-icons">add</i>
                                         </button>
                                     </div>
@@ -123,9 +116,17 @@
                         <div id="tabAddNumerical" class="col s12 tabNumericals">
                             <form class="col s12">
                                 <div class="row">
-                                    <div class="input-field col s9">
+                                    <div class="input-field col s4">
                                         <input id="txtNumIdentifier" type="text" class="validate">
                                         <label for="txtNumIdentifier">Identifier</label>
+                                    </div>
+                                    <!--                                    <div class="input-field col s3">
+                                                                            <input id="txtNumStatement" type="text" class="validate">
+                                                                            <label for="txtNumStatement">Statement</label>
+                                                                        </div>-->
+                                    <div class="input-field col s5">
+                                        <input id="txtNumSolution" type="text" class="validate">
+                                        <label for="txtNumSolution">Solution</label>
                                     </div>
                                     <div class="input-field col s3">
                                         <button class="btn-floating btn-large waves-effect waves-light red" type="button" name="btnAddNumerical">
@@ -153,7 +154,7 @@
                 </div>
                 <!-- -------------------
                 END SECTION: STATEMENTS -->
-
+                
                 <!-- BEGIN SECTION: FORMULA -->
                 <div class="container">
                     <h5>Formula For Numerical 3</h5>
@@ -177,8 +178,9 @@
                 END SECTION: FORMULA -->
             </div>
             <div class="col s3 right">
-                <!-- BEGIN SECTION: PARAMETERS -->
+                <!-- BEGIN SECTION: FORMULA -->
                 <div class="container">
+                    <!-- BEGIN SECTION: PARAMETERS -->
                     <div class="row">
                         <div class="col s12">
                             <ul class="tabs margin-bottom-20">
@@ -246,7 +248,7 @@
                 </div>
                 <!-- -------------------
                 END SECTION: PARAMETERS -->
-
+                
                 <!-- BEGIN SECTION: UNITS -->
                 <div class="container">
                     <div class="row">
@@ -313,11 +315,5 @@
         </div>
         <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="js/materialize.min.js"></script>
-        <script type="text/javascript" src="js/NSA.js"></script>
-        <script>
-            $(function () {
-                NSA.init();
-            });
-        </script>
     </body>
 </html>
