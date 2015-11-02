@@ -51,9 +51,9 @@
                     </div>
                     <!-- -------------------
                     END SECTION: CHAPTERS -->
-                    
+
                     <hr class="separator"/>
-                    
+
                     <!-- BEGIN SECTION: TOPICS -->
                     <div class="row">
                         <div class="col s12">
@@ -116,15 +116,15 @@
                         <div id="tabAddNumerical" class="col s12 tabNumericals">
                             <form class="col s12">
                                 <div class="row">
-                                    <div class="input-field col s3">
+                                    <div class="input-field col s4">
                                         <input id="txtNumIdentifier" type="text" class="validate">
                                         <label for="txtNumIdentifier">Identifier</label>
                                     </div>
-                                    <div class="input-field col s3">
-                                        <input id="txtNumStatement" type="text" class="validate">
-                                        <label for="txtNumStatement">Statement</label>
-                                    </div>
-                                    <div class="input-field col s3">
+                                    <!--                                    <div class="input-field col s3">
+                                                                            <input id="txtNumStatement" type="text" class="validate">
+                                                                            <label for="txtNumStatement">Statement</label>
+                                                                        </div>-->
+                                    <div class="input-field col s5">
                                         <input id="txtNumSolution" type="text" class="validate">
                                         <label for="txtNumSolution">Solution</label>
                                     </div>
@@ -139,32 +139,48 @@
                     </div>
                     <!-- -------------------
                     END SECTION: TOPICS -->
-
-                    <hr class="separator"/>
-
-                    <!-- BEGIN SECTION: FORMULA -->
-                    <div class="row">
-                        <form class="col s12">
-                            <div class="row">
-                                <div class="input-field col s9">
-                                    <input id="txtFormulaName" type="text" class="validate">
-                                    <label for="txtFormulaName">Formula</label>
-                                </div>
-                                <div class="input-field col s3">
-                                    <button class="btn-floating btn-large waves-effect waves-light red" type="button" name="btnAddFormula">
-                                        <i class="material-icons">add</i>
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                    <!-- -------------------
-                    END SECTION: FORMULA -->
                 </div>
             </div>
-            <div class="col s9 right">
+            <div class="col s6 middle">
+                <!-- BEGIN SECTION: STATEMENTS -->
+                <div class="container margin-bottom-50">
+                    <h5>Statement For Numerical 3</h5>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <textarea id="txtNumStatement" class="materialize-textarea textarea"></textarea>
+                            <label for="txtNumStatement">Statement</label>
+                        </div>
+                    </div>
+                </div>
+                <!-- -------------------
+                END SECTION: STATEMENTS -->
+                
+                <!-- BEGIN SECTION: FORMULA -->
                 <div class="container">
-                    <h5>Parameters</h5>
+                    <h5>Formula For Numerical 3</h5>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <textarea id="txtNumFormula" class="materialize-textarea textarea"></textarea>
+                            <label for="txtNumFormula">Formula</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <a class="waves-effect waves-light btn btn-small grid">=</a>
+                            <a class="waves-effect waves-light btn btn-small grid">+</a>
+                            <a class="waves-effect waves-light btn btn-small grid">-</a>
+                            <a class="waves-effect waves-light btn btn-small grid">*</a>
+                            <a class="waves-effect waves-light btn btn-small grid">/</a>
+                            <a class="waves-effect waves-light btn btn-small grid">%</a>
+                            <a class="waves-effect waves-light btn btn-small grid">^</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- -------------------
+                END SECTION: FORMULA -->
+            </div>
+            <div class="col s3 right">
+                <!-- BEGIN SECTION: FORMULA -->
+                <div class="container">
+                    <!-- BEGIN SECTION: PARAMETERS -->
                     <div class="row">
                         <div class="col s12">
                             <ul class="tabs margin-bottom-20">
@@ -173,12 +189,32 @@
                             </ul>
                         </div>
                         <div id="tabParams" class="col s12 tabParams">
-                            <a class='dropdown-button btn' href='#' data-beloworigin="true" data-activates='ddParams'>Select Parameter</a>
-                            <ul id='ddParams' class='dropdown-content'>
-                                <li><a href="javascript:;" class="param">Param one</a></li>
-                                <li><a href="javascript:;" class="param">Param two</a></li>
-                                <li><a href="javascript:;" class="param">Param three</a></li>
-                            </ul>
+                            <a class="waves-effect waves-light btn btn-small grid">a</a>
+                            <a class="waves-effect waves-light btn btn-small grid">b</a>
+                            <a class="waves-effect waves-light btn btn-small grid">c</a>
+                            <a class="waves-effect waves-light btn btn-small grid">d</a>
+                            <a class="waves-effect waves-light btn btn-small grid">e</a>
+                            <a class="waves-effect waves-light btn btn-small grid">f</a>
+                            <a class="waves-effect waves-light btn btn-small grid">g</a>
+                            <a class="waves-effect waves-light btn btn-small grid">h</a>
+                            <a class="waves-effect waves-light btn btn-small grid">i</a>
+                            <a class="waves-effect waves-light btn btn-small grid">j</a>
+                            <a class="waves-effect waves-light btn btn-small grid">k</a>
+                            <a class="waves-effect waves-light btn btn-small grid">l</a>
+                            <a class="waves-effect waves-light btn btn-small grid">m</a>
+                            <a class="waves-effect waves-light btn btn-small grid">n</a>
+                            <a class="waves-effect waves-light btn btn-small grid">o</a>
+                            <a class="waves-effect waves-light btn btn-small grid">p</a>
+                            <a class="waves-effect waves-light btn btn-small grid">q</a>
+                            <a class="waves-effect waves-light btn btn-small grid">r</a>
+                            <a class="waves-effect waves-light btn btn-small grid">s</a>
+                            <a class="waves-effect waves-light btn btn-small grid">t</a>
+                            <a class="waves-effect waves-light btn btn-small grid">u</a>
+                            <a class="waves-effect waves-light btn btn-small grid">v</a>
+                            <a class="waves-effect waves-light btn btn-small grid">w</a>
+                            <a class="waves-effect waves-light btn btn-small grid">x</a>
+                            <a class="waves-effect waves-light btn btn-small grid">y</a>
+                            <a class="waves-effect waves-light btn btn-small grid">z</a>
                         </div>
                         <div id="tabAddParam" class="col s12 tabParams">
                             <form class="col s12">
@@ -210,8 +246,11 @@
                     </div>
                     <hr class="separator"/>
                 </div>
+                <!-- -------------------
+                END SECTION: PARAMETERS -->
+                
+                <!-- BEGIN SECTION: UNITS -->
                 <div class="container">
-                    <h5>Units</h5>
                     <div class="row">
                         <div class="col s12">
                             <ul class="tabs margin-bottom-20">
@@ -220,12 +259,32 @@
                             </ul>
                         </div>
                         <div id="tabUnits" class="col s12 tabRegion">
-                            <a class='dropdown-button btn' href='#' data-beloworigin="true" data-activates='ddUnits'>Select Unit</a>
-                            <ul id='ddUnits' class='dropdown-content'>
-                                <li><a href="javascript:;" class="unit">Unit one</a></li>
-                                <li><a href="javascript:;" class="unit">Unit two</a></li>
-                                <li><a href="javascript:;" class="unit">Unit three</a></li>
-                            </ul>
+                            <a class="waves-effect waves-light btn btn-small grid">a</a>
+                            <a class="waves-effect waves-light btn btn-small grid">b</a>
+                            <a class="waves-effect waves-light btn btn-small grid">c</a>
+                            <a class="waves-effect waves-light btn btn-small grid">d</a>
+                            <a class="waves-effect waves-light btn btn-small grid">e</a>
+                            <a class="waves-effect waves-light btn btn-small grid">f</a>
+                            <a class="waves-effect waves-light btn btn-small grid">g</a>
+                            <a class="waves-effect waves-light btn btn-small grid">h</a>
+                            <a class="waves-effect waves-light btn btn-small grid">i</a>
+                            <a class="waves-effect waves-light btn btn-small grid">j</a>
+                            <a class="waves-effect waves-light btn btn-small grid">k</a>
+                            <a class="waves-effect waves-light btn btn-small grid">l</a>
+                            <a class="waves-effect waves-light btn btn-small grid">m</a>
+                            <a class="waves-effect waves-light btn btn-small grid">n</a>
+                            <a class="waves-effect waves-light btn btn-small grid">o</a>
+                            <a class="waves-effect waves-light btn btn-small grid">p</a>
+                            <a class="waves-effect waves-light btn btn-small grid">q</a>
+                            <a class="waves-effect waves-light btn btn-small grid">r</a>
+                            <a class="waves-effect waves-light btn btn-small grid">s</a>
+                            <a class="waves-effect waves-light btn btn-small grid">t</a>
+                            <a class="waves-effect waves-light btn btn-small grid">u</a>
+                            <a class="waves-effect waves-light btn btn-small grid">v</a>
+                            <a class="waves-effect waves-light btn btn-small grid">w</a>
+                            <a class="waves-effect waves-light btn btn-small grid">x</a>
+                            <a class="waves-effect waves-light btn btn-small grid">y</a>
+                            <a class="waves-effect waves-light btn btn-small grid">z</a>
                         </div>
                         <div id="tabAddUnit" class="col s12 tabRegion">
                             <form class="col s12">
@@ -240,7 +299,7 @@
                                     </div>
                                     <div class="input-field col s4">
                                         <input id="txtUnitMultiplier" type="text" class="validate">
-                                        <label for="txtUnitMultiplier">Standard Multiplier</label>
+                                        <label for="txtUnitMultiplier">Multiplier</label>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -250,9 +309,11 @@
                         </div>
                     </div>
                 </div>
+                <!-- -------------------
+                END SECTION: UNITS -->
             </div>
         </div>
         <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="js/materialize.min.js"></script>
     </body>
-</html>											
+</html>

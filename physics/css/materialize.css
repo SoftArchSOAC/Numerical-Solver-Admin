@@ -8329,6 +8329,9 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 
 /* END PADDINGS */
 
+.fleft{ float: left !important; }
+.fright{ float: right !important; }
+
 /* BEGIN TEMPORARY CLASSES */
 
 .dobo{ border: 1px solid #ddd; }
@@ -8358,11 +8361,14 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     max-height: 200px;
 }
 
-.left{
+.left, .middle, .right{
     min-height: 100vh;
     min-width: 320px;
     padding-top: 20px !important;
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+.left{
+    box-shadow: 0 0px 5px 5px rgba(0, 0, 0, 0.16), 0 0px 0px 0 rgba(0, 0, 0, 0.12);
 }
 
 .left a, .left li a, .right a, .right li a {
@@ -8373,11 +8379,29 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     padding: 0 15px;
 }
 
-.right{
-    padding-top: 20px !important;   
+.middle{
+    float: left;
+    box-shadow: 2px 0 5px -2px rgba(0, 0, 0, 0.16), 5px 0 5px -2px rgba(0, 0, 0, 0.12);
 }
 
 .separator{
     border: none;
     border-bottom: 1px solid #ddd;
+}
+
+.textarea{
+    padding: 0 !important;
+}
+
+.btn-small{
+    width: 30px !important;
+    height: 30px !important;
+    line-height: 30px !important;
+    padding: 0 !important;
+}
+
+.grid{
+    float: left;
+    margin: 0 2px 2px 0;
+    border-radius: 0;
 }
