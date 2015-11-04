@@ -27,13 +27,16 @@
                             </ul>
                         </div>
                         <div id="tabChapters" class="col s12 tabChapters">
-                            <a id="selectedChapter" class='dropdown-button btn' href='#' data-beloworigin="true" data-activates='ddChapters'>Select Chapter</a>
+                            <a id="selectedChapter" data-selected-id="0" class='dropdown-button btn' href='#' data-beloworigin="true" data-activates='ddChapters'>Select Chapter</a>
                             <ul id='ddChapters' class='dropdown-content'>
                                 <?PHP
                                 if ($chapters > 0) {
                                     foreach ($chapters as $key => $chap) {
                                         ?>
-                                        <li><a href="javascript:;" class="chapter"><?PHP echo $chap['name']; ?></a><a class="deleteChapter" data-id="<?PHP echo $chap['id']; ?>">X</a></li>
+                                        <li>
+                                            <a href="javascript:;" class="chapter"><?PHP echo $chap['name']; ?></a>
+                                            <a class="deleteChapter" data-id="<?PHP echo $chap['id']; ?>">X</a>
+                                        </li>
                                         <?PHP
                                     }
                                 }
@@ -70,14 +73,20 @@
                             </ul>
                         </div>
                         <div id="tabTopics" class="col s12 tabTopics">
-                            <a class='dropdown-button btn' href='#' data-beloworigin="true" data-activates='ddTopics'>Select Topic</a>
+                            <a id="selectedTopic" data-selected-id="0" class='dropdown-button btn' href='#' data-beloworigin="true" data-activates='ddTopics'>Select Topic</a>
                             <ul id='ddTopics' class='dropdown-content'>
-                                <li><a href="javascript:;" class="topic">Topic one</a></li>
-                                <li><a href="javascript:;" class="topic">Topic two</a></li>
-                                <li><a href="javascript:;" class="topic">Topic three</a></li>
-                                <li><a href="javascript:;" class="topic">Topic four</a></li>
-                                <li><a href="javascript:;" class="topic">Topic five</a></li>
-                                <li><a href="javascript:;" class="topic">Topic six</a></li>
+                                <?PHP
+//                                if ($topics > 0) {
+//                                    foreach ($topics as $key => $topic) {
+//                                        ?>
+<!--                                        <li>
+                                            <a href="javascript:;" class="topic"><?PHP // echo $topic['name']; ?></a>
+                                            <a class="deleteTopic" data-id="<?PHP // echo $topic['id']; ?>">X</a>
+                                        </li>-->
+                                        <?PHP
+//                                    }
+//                                }
+                                ?>
                             </ul>
                         </div>
                         <div id="tabAddTopic" class="col s12 tabTopics">
@@ -88,7 +97,7 @@
                                         <label for="txtTopicName">Topic</label>
                                     </div>
                                     <div class="input-field col s3">
-                                        <button class="btn-floating btn-large waves-effect waves-light red" type="button" name="btnAddTopic">
+                                        <button type="button" name="btnAddTopic" id="btnAddTopic" class="btn-floating btn-large waves-effect waves-light red">
                                             <i class="material-icons">add</i>
                                         </button>
                                     </div>

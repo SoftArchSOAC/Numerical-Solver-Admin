@@ -1,7 +1,6 @@
 <?php
 
 class NSA {
-    
     /*
      * NSA : CHAPTERS
      */
@@ -9,7 +8,7 @@ class NSA {
     public static function addChapter($FIELDS, $VALUES) {
         return insertRecord("chapters", $FIELDS, $VALUES);
     }
-    
+
     public static function updateChapter($FIELDS, $VALUES, $ID) {
         return updateRecord("chapters", $FIELDS, $VALUES, " WHERE id={$ID} ");
     }
@@ -17,11 +16,45 @@ class NSA {
     public static function deleteChapter($ID) {
         return deleteRecord("chapters", "id", "$ID");
     }
-    
+
     public static function getChapters() {
         $chapters = getColumn("chapters", "*", "ORDER BY name");
         if (!empty($chapters)) {
             return $chapters;
+        } else {
+            return 0;
+        }
+    }
+
+    /*
+     * NSA : TOPICS
+     */
+
+    public static function addTopic($FIELDS, $VALUES) {
+        return insertRecord("topics", $FIELDS, $VALUES);
+    }
+
+    public static function updateTopic($FIELDS, $VALUES, $ID) {
+        return updateRecord("topics", $FIELDS, $VALUES, " WHERE id={$ID} ");
+    }
+
+    public static function deleteTopic($ID) {
+        return deleteRecord("topics", "id", "$ID");
+    }
+
+    public static function getTopics() {
+        $topics = getColumn("topics", "*", "ORDER BY name");
+        if (!empty($topics)) {
+            return $topics;
+        } else {
+            return 0;
+        }
+    }
+
+    public static function getTopicsOfChapter($chapter_id) {
+        $topics = getColumn("topics", "*", "WHERE chapter_id={$chapter_id} ORDER BY name");
+        if (!empty($topics)) {
+            return $topics;
         } else {
             return 0;
         }
@@ -104,7 +137,6 @@ class NSA {
 //            return 0;
 //        }
 //    }
-
 }
 
 ?>

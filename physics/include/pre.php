@@ -6,5 +6,6 @@ if (stripos($_SERVER["PHP_SELF"], "/pre.php") > 0)
 require_once 'include/config.php';
 
 $chapters = $clsNsa->getChapters();
+$topics = $clsNsa->getTopics();
 
 ?>
