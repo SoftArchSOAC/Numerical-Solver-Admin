@@ -61,70 +61,126 @@ class NSA {
     }
 
     /*
-     * FOOD ITEM
+     * NSA : NUMERICALS
      */
 
-//    public static function addFoodItem($FIELDS, $VALUES) {
-//        return insertRecord("food_item", $FIELDS, $VALUES);
-//    }
-//    
-//    public static function updateFoodItem($FIELDS, $VALUES, $ID) {
-//        return updateRecord("food_item", $FIELDS, $VALUES, " WHERE id={$ID} ");
-//    }
-//
-//    public static function deleteFoodItem($ID) {
-//        return deleteRecord("food_item", "id", "$ID");
-//    }
-//
-//    public static function getFoodItems() {
-//        $foodItemsList = getColumn("food_item", "*", " ORDER BY cat_id");
-//        if (!empty($foodItemsList)) {
-//            return $foodItemsList;
-//        } else {
-//            return 0;
-//        }
-//    }
-//
-//    public static function getFoodItem($ID) {
-//        $foodItem = getColumn("food_item", "*", " WHERE id={$ID} ");
-//        if (!empty($foodItem)) {
-//            return $foodItem[0];
-//        } else {
-//            return 0;
-//        }
-//    }
-//    
-//    public static function getFoodItemOrderDetails($ID) {
-//        $foodItem = getColumn("food_item", "code, name", " WHERE id={$ID} ");
-//        if (!empty($foodItem)) {
-//            return $foodItem[0];
-//        } else {
-//            return 0;
-//        }
-//    }
-//    
-//    public static function getItemTemp($itemId) {
-//        $foodItem = getColumn("food_item", "cat_id, price", " WHERE id={$itemId} ");
-//        if (!empty($foodItem)) {
-//            return $foodItem[0];
-//        } else {
-//            return 0;
-//        }
-//    }
-//
-//    public static function getItemPrice($itemId) {
-//        $itemPrice = getColumn("food_item", "price", " WHERE id={$itemId} ");
-//        if (!empty($itemPrice)) {
-//            if (isset($itemPrice[0]['price'])) {
-//                return $itemPrice[0]['price'];
-//            } else {
-//                return 0;
-//            }
-//        } else {
-//            return 0;
-//        }
-//    }
-//
+    public static function addNumerical($FIELDS, $VALUES) {
+        return insertRecord("numericals", $FIELDS, $VALUES);
+    }
+
+    public static function updateNumerical($FIELDS, $VALUES, $ID) {
+        return updateRecord("numericals", $FIELDS, $VALUES, " WHERE id={$ID} ");
+    }
+
+    public static function deleteNumerical($ID) {
+        return deleteRecord("numericals", "id", "$ID");
+    }
+
+    public static function getNumericals() {
+        $topics = getColumn("numericals", "*", "ORDER BY name");
+        if (!empty($topics)) {
+            return $topics;
+        } else {
+            return 0;
+        }
+    }
+
+    public static function getTopicEnv($topic_id) {
+        // SELECT num.id, num.identifier, num.statement, num.solution, f.identifier, f.string
+        // FROM numericals AS num 
+        // LEFT JOIN formulas AS f 
+        // ON num.id = f.numerical_id 
+        // ORDER BY num.identifier 
+        $topicEnv = getColumn("numericals AS num LEFT JOIN formulas AS f ON num.id = f.numerical_id", "num.id, num.identifier AS num_id, num.statement, num.solution, f.identifier AS formula_id, f.string", "WHERE topic_id={$topic_id} ORDER BY f.identifier");
+        if (!empty($topicEnv)) {
+            return $topicEnv;
+        } else {
+            return 0;
+        }
+    }
+
+    public static function updateStatement($FIELDS, $VALUES, $num_id) {
+        return updateRecord("numericals", $FIELDS, $VALUES, " WHERE id={$num_id} ");
+    }
+
+    /*
+     * FORMULA
+     */
+
+    public static function addFormulaString($FIELDS, $VALUES) {
+        return insertRecord("formulas", $FIELDS, $VALUES);
+    }
+
+    public static function updateFormulaString($FIELDS, $VALUES, $ID) {
+        return updateRecord("formulas", $FIELDS, $VALUES, " WHERE id={$ID} ");
+    }
+
+    public static function checkFormulaExists($numerical_id) {
+        $formula = getColumn("formulas", "id", " WHERE numerical_id={$numerical_id} ");
+        if (!empty($formula)) {
+            if (isset($formula[0]['id'])) {
+                return $formula[0]['id'];
+            } else {
+                return 0;
+            }
+        } else {
+            return 0;
+        }
+    }
+
+    /*
+     * PARAMETERS
+     */
+
+    public static function addParam($FIELDS, $VALUES) {
+        return insertRecord("parameters", $FIELDS, $VALUES);
+    }
+
+    public static function updateParam($FIELDS, $VALUES, $ID) {
+        return updateRecord("parameters", $FIELDS, $VALUES, " WHERE id={$ID} ");
+    }
+
+    public static function deleteParam($ID) {
+        return deleteRecord("parameters", "id", "$ID");
+    }
+
+    public static function getParams($chapter_id) {
+        $params = getColumn("parameters", "*", "WHERE chapter_id={$chapter_id} ORDER BY name");
+        if (!empty($params)) {
+            return $params;
+        } else {
+            return 0;
+        }
+    }
+
+    /*
+     * UNITS
+     */
+
+    public static function addUnit($FIELDS, $VALUES) {
+        return insertRecord("units", $FIELDS, $VALUES);
+    }
+
+    public static function updateUnit($FIELDS, $VALUES, $ID) {
+        return updateRecord("units", $FIELDS, $VALUES, " WHERE id={$ID} ");
+    }
+
+    public static function deleteUnit($ID) {
+        return deleteRecord("units", "id", "$ID");
+    }
+
+    public static function getUnits($chapter_id) {
+        $units = getColumn("units", "*", "WHERE chapter_id={$chapter_id} ORDER BY name");
+        if (!empty($units)) {
+            return $units;
+        } else {
+            return 0;
+        }
+    }
+
+    /*
+     * FOOD ITEM
+     */
 //    public static function getItemCode($itemId) {
 //        $itemCode = getColumn("food_item", "code", " WHERE id={$itemId} ");
 //        if (!empty($itemCode)) {

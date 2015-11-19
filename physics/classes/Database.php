@@ -96,7 +96,7 @@ class Database {
                 $sql.=",";
         }
         $sql.=$this->extra_param;
-//        echo "<br />==>" . $sql;
+        //echo "<br />==>" . $sql;
         //exit;
         $cnt = 0;
         $this->RunSql($sql);
@@ -161,7 +161,7 @@ class Database {
 
     public function FetchData($type = 2) {
         $sql = "SELECT $this->field_list FROM $this->table $this->extra_param";
-//        echo "<br>==FD>$sql";
+        //echo "<br>==FD>$sql";
         $data = array();
         $tab = $this->RunSql($sql);
         if ($this->num_rows) {

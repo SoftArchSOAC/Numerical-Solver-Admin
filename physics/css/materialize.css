@@ -8354,7 +8354,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 }
 
 .tabParams{
-    min-height: 276px;
+    //min-height: 276px;
 }
 
 .dropdown-content{
@@ -8401,16 +8401,43 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 }
 
 .grid{
-    float: left;
-    margin: 0 2px 2px 0;
+    height: auto !important;
+    line-height: initial !important;
+    margin: 0 2px 2px 0 !important;
+    padding: 0.5em !important;
     border-radius: 0;
+    float: left;
+    background-color: #26a69a;
+    color: #fff;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    text-align: center;
+    text-decoration: none;
 }
 
-#selectedChapter {
+#selectedChapter, #selectedTopic, #selectedNumerical, #selectedParam {
     text-transform: none;
 }
 
-.chapter, .topic{
+.chapter, .topic, .numerical{
     width: 90% !important;
     float: left;
+}
+
+.param, .unit{
+    width: 85% !important;
+    float: left;
+}
+
+.theme-color{
+    color: #ee6e73
+}
+
+#tabParams{
+    height: 200px !important;
+    overflow: auto;
+}
+
+div.params{
+    min-height: 300px;
 }

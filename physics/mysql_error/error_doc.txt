@@ -1,0 +1,36 @@
+
+			Date : 09-11-15 07:11:09
+			File : 
+			line_no : 
+			USER IP : ::1
+			Error : Cannot delete or update a parent row: a foreign key constraint fails (`nsadb`.`numericals`, CONSTRAINT `topic` FOREIGN KEY (`topic_id`) REFERENCES `topics` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+			Query : DELETE FROM chapters WHERE id='27'  
+			------------------------------------------------------------
+			Date : 19-11-15 07:11:11
+			File : 
+			line_no : 
+			USER IP : ::1
+			Error : Column 'identifier' in order clause is ambiguous
+			Query : SELECT num.id, num.identifier, num.statement, num.solution, f.identifier, f.string FROM numericals AS num LEFT JOIN formulas AS f ON num.id = f.numerical_id WHERE topic_id=7 ORDER BY identifier
+			------------------------------------------------------------
+			Date : 19-11-15 09:11:19
+			File : 
+			line_no : 
+			USER IP : ::1
+			Error : Column 'identifier' in order clause is ambiguous
+			Query : SELECT num.id, num.identifier, num.statement, num.solution, f.identifier, f.string FROM numericals AS num LEFT JOIN formulas AS f ON num.id = f.numerical_id WHERE topic_id=7 ORDER BY identifier
+			------------------------------------------------------------
+			Date : 19-11-15 09:11:46
+			File : 
+			line_no : 
+			USER IP : ::1
+			Error : Duplicate entry '3' for key 'numerical_id'
+			Query :  INSERT INTO formulas  (string,numerical_id )  VALUES("ABCD","3" ) 
+			------------------------------------------------------------
+			Date : 19-11-15 09:11:51
+			File : 
+			line_no : 
+			USER IP : ::1
+			Error : Duplicate entry '3' for key 'numerical_id'
+			Query :  INSERT INTO formulas  (string,numerical_id )  VALUES("ABCD","3" ) 
+			------------------------------------------------------------
