@@ -122,7 +122,8 @@ var NSA = function () {
                         $tempLi.attr('data-param-symbol', param_symbol);
                         $tempLi.attr('data-param-value', param_value);
                         $tempLi.attr('data-param-default', param_default_value);
-                        $(".param-grid[data-id=" + update_id + "]").html(param_name);
+                        $(".param-grid[data-id=" + update_id + "]").html(param_symbol);
+                        $(".param-grid[data-id=" + update_id + "]").attr("title", param_name);
                         swal('Great!', 'Parameter Updated!', 'success');
                     }
 
@@ -156,7 +157,8 @@ var NSA = function () {
                         $tempLi.html(unit_name);
                         $tempLi.attr('data-unit-symbol', unit_symbol);
                         $tempLi.attr('data-unit-multiplier', unit_multiplier);
-                        $(".unit-grid[data-id=" + update_id + "]").html(unit_name);
+                        $(".unit-grid[data-id=" + update_id + "]").html(unit_symbol);
+                        $(".unit-grid[data-id=" + update_id + "]").attr("title", unit_name);
                         swal('Great!', 'Unit Updated!', 'success');
                     }
 
@@ -281,7 +283,7 @@ var NSA = function () {
                     var newParam = '', newLi = '';
                     for (var i = 0; i < result.length; i++) {
                         // For param GRID
-                        newParam += '<a class="waves-effect waves-light grid param-grid" data-id="' + result[i].id + '">' + result[i].name + '</a>';
+                        newParam += '<a class="waves-effect waves-light grid param-grid" data-id="' + result[i].id + '" title="' + result[i].name + '">' + result[i].symbol + '</a>';
 
                         // For Param Dropdown List
                         newLi += '<li><a href="javascript:;" class="param" data-param-symbol="' + result[i].symbol + '" data-param-value="' + result[i].value + '" data-param-default="' + result[i].default_value + '" >' + result[i].name + '</a><a class="deleteParam" data-id=' + result[i].id + '>X</a></li>';
@@ -305,7 +307,7 @@ var NSA = function () {
                     var newUnit = '', newLi = '';
                     for (var i = 0; i < result.length; i++) {
                         // For Unit GRID
-                        newUnit += '<a class="waves-effect waves-light grid unit-grid" data-id="' + result[i].id + '">' + result[i].name + '</a>';
+                        newUnit += '<a class="waves-effect waves-light grid unit-grid" data-id="' + result[i].id + '" title="' + result[i].name + '">' + result[i].symbol + '</a>';
 
                         // For Unit Dropdown List
                         newLi += '<li><a href="javascript:;" class="unit" data-unit-symbol="' + result[i].symbol + '" data-unit-multiplier="' + result[i].standard_multiplier + '" >' + result[i].name + '</a><a class="deleteUnit" data-id=' + result[i].id + '>X</a></li>';
@@ -586,6 +588,24 @@ var NSA = function () {
             });
 
 
+            $("#addNewParam").click(function () {
+                $(".unitTab").fadeOut();
+                $(".unitTab").css("visibility", "collapse");
+            });
+
+            $("#addNewUnit").click(function () {
+                $(".unitParam").fadeOut();
+            });
+
+            /*on math button click*/
+            $(".all-math-op div a").click(function () {
+                var currentFormula = $("#txtNumFormulaString").val();
+                var content = $(this).text();
+
+//                $("#txtNumFormulaString").val(currentFormula + content);
+                NSA.insertAtCaret("txtNumFormulaString", content);
+            });
+
             //initialize here something.
         },
         //some helper function
@@ -646,7 +666,44 @@ var NSA = function () {
             $("#txtUnitName").val('');
             $("#txtUnitSymbol").val('');
             $("#txtUnitMultiplier").val('');
-        }
+        },
+        insertAtCaret: function (areaId, text) {
+
+            var txtarea = document.getElementById(areaId);
+            var scrollPos = txtarea.scrollTop;
+            var strPos = 0;
+            var br = ((txtarea.selectionStart || txtarea.selectionStart == '0') ?
+                    "ff" : (document.selection ? "ie" : false));
+            if (br == "ie") {
+                txtarea.focus();
+                var range = document.selection.createRange();
+                range.moveStart('character', -txtarea.value.length);
+                strPos = range.text.length;
+            }
+            else if (br == "ff")
+                strPos = txtarea.selectionStart;
+
+            var front = (txtarea.value).substring(0, strPos);
+            var back = (txtarea.value).substring(strPos, txtarea.value.length);
+            txtarea.value = front + text + back;
+            strPos = strPos + text.length;
+            if (br == "ie") {
+                txtarea.focus();
+                var range = document.selection.createRange();
+                range.moveStart('character', -txtarea.value.length);
+                range.moveStart('character', strPos);
+                range.moveEnd('character', 0);
+                range.select();
+            }
+            else if (br == "ff") {
+                txtarea.selectionStart = strPos;
+                txtarea.selectionEnd = strPos;
+                txtarea.focus();
+            }
+            txtarea.scrollTop = scrollPos;
+
+
+        },
     };
 
 }();

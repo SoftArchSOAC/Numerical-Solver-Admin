@@ -137,7 +137,7 @@
             </div>
             <div class="col s6 middle">
                 <!-- BEGIN SECTION: STATEMENTS -->
-                <div class="container margin-bottom-50">
+                <div class="container-fluid margin-left-30 margin-bottom-50 ">
                     <h5>Statement For <span class="selectedNumerical theme-color">..</span></h5>
                     <div class="row">
                         <div class="input-field col s9">
@@ -155,7 +155,7 @@
                 END SECTION: STATEMENTS -->
 
                 <!-- BEGIN SECTION: FORMULA -->
-                <div class="container">
+                <div class="container-fluid margin-left-30 margin-bottom-50">
                     <h5>Formula String For <span class="selectedNumerical theme-color">..</span></h5>
                     <div class="row">
                         <div class="input-field col s9">
@@ -167,14 +167,48 @@
                                 <i class="material-icons">add</i>
                             </button>
                         </div>
-                        <div class="input-field col s12">
-                            <a class="waves-effect waves-light btn btn-small grid">=</a>
-                            <a class="waves-effect waves-light btn btn-small grid">+</a>
-                            <a class="waves-effect waves-light btn btn-small grid">-</a>
-                            <a class="waves-effect waves-light btn btn-small grid">*</a>
-                            <a class="waves-effect waves-light btn btn-small grid">/</a>
-                            <a class="waves-effect waves-light btn btn-small grid">%</a>
-                            <a class="waves-effect waves-light btn btn-small grid">^</a>
+                        <div class="input-field col s12 all-math-op">
+                            <div class="input-field col s4">
+                                <a class="waves-effect waves-light btn btn-small grid ">=</a>
+                                <a class="waves-effect waves-light btn btn-small grid ">+</a>
+                                <a class="waves-effect waves-light btn btn-small grid ">-</a>
+                                <a class="waves-effect waves-light btn btn-small grid ">*</a>
+                                <a class="waves-effect waves-light btn btn-small grid ">/</a>
+                                <a class="waves-effect waves-light btn btn-small grid ">%</a>
+                                <a class="waves-effect waves-light btn btn-small grid ">(</a>
+                                <a class="waves-effect waves-light btn btn-small grid ">)</a>
+                                <a class="waves-effect waves-light btn btn-small grid ">{</a>
+                                <a class="waves-effect waves-light btn btn-small grid ">}</a>
+                                <a class="waves-effect waves-light btn btn-small grid ">[</a>
+                                <a class="waves-effect waves-light btn btn-small grid ">]</a>
+                            </div>
+                            <div class="input-field col s3 math-op">
+                                <a class="waves-effect waves-light btn btn-small grid">1</a>
+                                <a class="waves-effect waves-light btn btn-small grid">2</a>
+                                <a class="waves-effect waves-light btn btn-small grid">3</a>
+                                <a class="waves-effect waves-light btn btn-small grid">4</a>
+                                <a class="waves-effect waves-light btn btn-small grid">5</a>
+                                <a class="waves-effect waves-light btn btn-small grid">6</a>
+                                <a class="waves-effect waves-light btn btn-small grid">7</a>
+                                <a class="waves-effect waves-light btn btn-small grid">8</a>
+                                <a class="waves-effect waves-light btn btn-small grid">9</a>
+                                <a class="waves-effect waves-light btn btn-small grid" style="visibility: hidden">0</a>
+                                <a class="waves-effect waves-light btn btn-small grid">0</a>
+                            </div>
+                            <div class="input-field col s5 math-func">
+                                <a class="waves-effect waves-light grid"> abs</a>
+                                <a class="waves-effect waves-light grid">sqrt</a>
+                                <a class="waves-effect waves-light grid">cbrt</a>
+                                <a class="waves-effect waves-light grid">ceil</a>
+                                <a class="waves-effect waves-light grid">floor</a>
+                                <a class="waves-effect waves-light grid">exp</a>
+                                <a class="waves-effect waves-light grid">log</a>
+                                <a class="waves-effect waves-light grid">log10</a>
+                                <a class="waves-effect waves-light grid">log2</a>
+                                <a class="waves-effect waves-light grid">sin</a>
+                                <a class="waves-effect waves-light grid">cos</a>
+                                <a class="waves-effect waves-light grid">tan</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -188,11 +222,39 @@
                         <div class="col s12">
                             <ul class="tabs margin-bottom-20">
                                 <li class="tab col s3"><a class="active" href="#tabParams">Parameters</a></li>
-                                <li class="tab col s3"><a href="#tabAddParam">Add New</a></li>
+                                <li class="tab col s3"><a href="#tabAddParam" id="addNewParam">Add New</a></li>
                             </ul>
                         </div>
-                        <div id="tabParams" class="col s12 tabParams"></div>
-                        <div id="tabAddParam" class="col s12 tabParams">
+                        <div id="tabParams" class="col s12 tabParams unitParam">
+                            <a class="waves-effect waves-light grid">a</a>
+                            <a class="waves-effect waves-light grid">b</a>
+                            <a class="waves-effect waves-light grid">c</a>
+                            <a class="waves-effect waves-light grid">d</a>
+                            <a class="waves-effect waves-light grid">e</a>
+                            <a class="waves-effect waves-light grid">f</a>
+                            <a class="waves-effect waves-light grid">g</a>
+                            <a class="waves-effect waves-light grid">h</a>
+                            <a class="waves-effect waves-light grid">i</a>
+                            <a class="waves-effect waves-light grid">j</a>
+                            <a class="waves-effect waves-light grid">k</a>
+                            <a class="waves-effect waves-light grid">l</a>
+                            <a class="waves-effect waves-light grid">m</a>
+                            <a class="waves-effect waves-light grid">n</a>
+                            <a class="waves-effect waves-light grid">o</a>
+                            <a class="waves-effect waves-light grid">p</a>
+                            <a class="waves-effect waves-light grid">q</a>
+                            <a class="waves-effect waves-light grid">r</a>
+                            <a class="waves-effect waves-light grid">s</a>
+                            <a class="waves-effect waves-light grid">t</a>
+                            <a class="waves-effect waves-light grid">u</a>
+                            <a class="waves-effect waves-light grid">v</a>
+                            <a class="waves-effect waves-light grid">w</a>
+                            <a class="waves-effect waves-light grid">x</a>
+                            <a class="waves-effect waves-light grid">y</a>
+                            <a class="waves-effect waves-light grid">z</a>
+
+                        </div>
+                        <div id="tabAddParam" class="col s12 tabParams unitParam">
                             <form class="col s12">
                                 <a id="selectedParam" data-selected-id="0" class='dropdown-button btn selectedParam' href='#' data-beloworigin="true" data-activates='ddParams'>Edit Parameter</a>
                                 <ul id='ddParams' class='dropdown-content'></ul><br/>
@@ -232,39 +294,39 @@
                     <div class="row">
                         <div class="col s12">
                             <ul class="tabs margin-bottom-20">
-                                <li class="tab col s3"><a class="active" href="#tabUnits">Units</a></li>
-                                <li class="tab col s3"><a href="#tabAddUnit">Add New</a></li>
+                                <li class="tab col s3"><a class="active " href="#tabUnits" >Units</a></li>
+                                <li class="tab col s3"><a href="#tabAddUnit" id="addNewUnit">Add New</a></li>
                             </ul>
                         </div>
-                        <div id="tabUnits" class="col s12 tabRegion">
-                            <!--<a class="waves-effect waves-light grid">a</a>
-                                <a class="waves-effect waves-light grid">b</a>
-                                <a class="waves-effect waves-light grid">c</a>
-                                <a class="waves-effect waves-light grid">d</a>
-                                <a class="waves-effect waves-light grid">e</a>
-                                <a class="waves-effect waves-light grid">f</a>
-                                <a class="waves-effect waves-light grid">g</a>
-                                <a class="waves-effect waves-light grid">h</a>
-                                <a class="waves-effect waves-light grid">i</a>
-                                <a class="waves-effect waves-light grid">j</a>
-                                <a class="waves-effect waves-light grid">k</a>
-                                <a class="waves-effect waves-light grid">l</a>
-                                <a class="waves-effect waves-light grid">m</a>
-                                <a class="waves-effect waves-light grid">n</a>
-                                <a class="waves-effect waves-light grid">o</a>
-                                <a class="waves-effect waves-light grid">p</a>
-                                <a class="waves-effect waves-light grid">q</a>
-                                <a class="waves-effect waves-light grid">r</a>
-                                <a class="waves-effect waves-light grid">s</a>
-                                <a class="waves-effect waves-light grid">t</a>
-                                <a class="waves-effect waves-light grid">u</a>
-                                <a class="waves-effect waves-light grid">v</a>
-                                <a class="waves-effect waves-light grid">w</a>
-                                <a class="waves-effect waves-light grid">x</a>
-                                <a class="waves-effect waves-light grid">y</a>
-                                <a class="waves-effect waves-light grid">z</a>-->
+                        <div id="tabUnits" class="col s12 tabRegion unitTab">
+                            <a class="waves-effect waves-light grid">a</a>
+                            <a class="waves-effect waves-light grid">b</a>
+                            <a class="waves-effect waves-light grid">c</a>
+                            <a class="waves-effect waves-light grid">d</a>
+                            <a class="waves-effect waves-light grid">e</a>
+                            <a class="waves-effect waves-light grid">f</a>
+                            <a class="waves-effect waves-light grid">g</a>
+                            <a class="waves-effect waves-light grid">h</a>
+                            <a class="waves-effect waves-light grid">i</a>
+                            <a class="waves-effect waves-light grid">j</a>
+                            <a class="waves-effect waves-light grid">k</a>
+                            <a class="waves-effect waves-light grid">l</a>
+                            <a class="waves-effect waves-light grid">m</a>
+                            <a class="waves-effect waves-light grid">n</a>
+                            <a class="waves-effect waves-light grid">o</a>
+                            <a class="waves-effect waves-light grid">p</a>
+                            <a class="waves-effect waves-light grid">q</a>
+                            <a class="waves-effect waves-light grid">r</a>
+                            <a class="waves-effect waves-light grid">s</a>
+                            <a class="waves-effect waves-light grid">t</a>
+                            <a class="waves-effect waves-light grid">u</a>
+                            <a class="waves-effect waves-light grid">v</a>
+                            <a class="waves-effect waves-light grid">w</a>
+                            <a class="waves-effect waves-light grid">x</a>
+                            <a class="waves-effect waves-light grid">y</a>
+                            <a class="waves-effect waves-light grid">z</a>
                         </div>
-                        <div id="tabAddUnit" class="col s12 tabRegion">
+                        <div id="tabAddUnit" class="col s12 tabRegion unitTab">
                             <form class="col s12">
                                 <a id="selectedUnit" data-selected-id="0" class='dropdown-button btn selectedUnit' href='#' data-beloworigin="true" data-activates='ddUnits'>Edit Unit</a>
                                 <ul id='ddUnits' class='dropdown-content'></ul><br/>
