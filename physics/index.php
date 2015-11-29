@@ -24,29 +24,18 @@
             <div class="col s3 left">
                 <div align="center">
                     <!-- BEGIN SECTION: CHAPTERS -->
-                    <div class="row">
+                    <div class="row chapters-section">
                         <div class="col s12">
                             <ul class="tabs margin-bottom-20">
-                                <li class="tab col s3"><a class="active" href="#tabChapters">Chapters</a></li>
-                                <li class="tab col s3"><a href="#tabAddChapter">Add New</a></li>
+                                <li class="tab col s3"><a id="viewChapters" class="active" href="#tabChapters">Chapters</a></li>
+                                <li class="tab col s3"><a id="viewAddChapter" href="#tabAddChapter">Add</a></li>
                             </ul>
                         </div>
                         <div id="tabChapters" class="col s12 tabChapters">
                             <a id="selectedChapter" data-selected-id="0" class='dropdown-button btn' href='#' data-beloworigin="true" data-activates='ddChapters'>Select Chapter</a>
                             <ul id='ddChapters' class='dropdown-content'>
-                                <?PHP
-                                if ($chapters > 0) {
-                                    foreach ($chapters as $key => $chap) {
-                                        ?>
-                                        <li>
-                                            <a href="javascript:;" class="chapter"><?PHP echo $chap['name']; ?></a>
-                                            <a class="deleteChapter" data-id="<?PHP echo $chap['id']; ?>">X</a>
-                                        </li>
-                                        <?PHP
-                                    }
-                                }
-                                ?>
                             </ul>
+                            <p id="noChapMsg">Add chapters to see them here.</p>
                         </div>
                         <div id="tabAddChapter" class="col s12 tabChapters">
                             <form class="col s12">
@@ -70,17 +59,18 @@
                     <hr class="separator"/>
 
                     <!-- BEGIN SECTION: TOPICS -->
-                    <div class="row">
+                    <div class="row topics-section">
                         <div class="col s12">
                             <ul class="tabs margin-bottom-20">
-                                <li class="tab col s3"><a class="active" href="#tabTopics">Topics</a></li>
-                                <li class="tab col s3"><a href="#tabAddTopic">Add New</a></li>
+                                <li class="tab col s3"><a id="viewTopics" class="active" href="#tabTopics">Topics</a></li>
+                                <li class="tab col s3"><a id="viewAddTopic" href="#tabAddTopic">Add</a></li>
                             </ul>
                         </div>
                         <div id="tabTopics" class="col s12 tabTopics">
                             <a id="selectedTopic" data-selected-id="0" class='dropdown-button btn' href='#' data-beloworigin="true" data-activates='ddTopics'>Select Topic</a>
                             <ul id='ddTopics' class='dropdown-content'>
                             </ul>
+                            <p id="noTopicsMsg">Add topics to see them here.</p>
                         </div>
                         <div id="tabAddTopic" class="col s12 tabTopics">
                             <form class="col s12">
@@ -101,20 +91,22 @@
                     <!-- -------------------
                     END SECTION: TOPICS -->
 
-                    <hr class="separator"/>
+                    <hr class="separator numericals-section"/>
 
                     <!-- BEGIN SECTION: NUMERICALS -->
-                    <div class="row">
+                    <div class="row numericals-section">
                         <div class="col s12">
                             <ul class="tabs margin-bottom-20">
-                                <li class="tab col s3"><a class="active" href="#tabNumericals">Numericals</a></li>
-                                <li class="tab col s3"><a href="#tabAddNumerical">Add New</a></li>
+                                <li class="tab col s3"><a id="viewNumericals" class="active" href="#tabNumericals">Numericals</a></li>
+                                <li class="tab col s3"><a id="viewAddNumericals" href="#tabAddNumerical">Add</a></li>
                             </ul>
                         </div>
                         <div id="tabNumericals" class="col s12 tabNumericals">
                             <a id="selectedNumerical" data-selected-id="0" class='dropdown-button btn selectedNumerical' href='#' data-beloworigin="true" data-activates='ddNumericals'>Select Numerical</a>
                             <ul id='ddNumericals' class='dropdown-content'>
+                                <p id="noTopicsMsg">Add topics to see them here.</p>
                             </ul>
+                            <p id="noNumericalsMsg">Add numerical to see them here.</p>
                         </div>
                         <div id="tabAddNumerical" class="col s12 tabNumericals">
                             <form class="col s12">
@@ -136,6 +128,7 @@
                     END SECTION: TOPICS -->
                 </div>
             </div>
+
             <div class="col s6 middle">
                 <!-- BEGIN SECTION: STATEMENTS -->
                 <div class="container-fluid margin-left-30 margin-bottom-50 ">
@@ -216,49 +209,22 @@
                 <!-- -------------------
                 END SECTION: FORMULA -->
             </div>
+
             <div class="col s3 right">
                 <!-- BEGIN SECTION: PARAMETERS -->
                 <div class="container params">
                     <div class="row">
                         <div class="col s12">
                             <ul class="tabs margin-bottom-20">
-                                <li class="tab col s3"><a class="active" href="#tabParams">Parameters</a></li>
-                                <li class="tab col s3"><a href="#tabAddParam" id="addNewParam">Add New</a></li>
+                                <li class="tab col s3"><a id="viewParameters" data-selected-id="0" class="active" href="#tabParams">Params</a></li>
+                                <li class="tab col s3"><a id="viewAddParameters" href="#tabAddParam">Add</a></li>
                             </ul>
                         </div>
                         <div id="tabParams" class="col s12 tabParams unitParam">
-                            <a class="waves-effect waves-light grid">a</a>
-                            <a class="waves-effect waves-light grid">b</a>
-                            <a class="waves-effect waves-light grid">c</a>
-                            <a class="waves-effect waves-light grid">d</a>
-                            <a class="waves-effect waves-light grid">e</a>
-                            <a class="waves-effect waves-light grid">f</a>
-                            <a class="waves-effect waves-light grid">g</a>
-                            <a class="waves-effect waves-light grid">h</a>
-                            <a class="waves-effect waves-light grid">i</a>
-                            <a class="waves-effect waves-light grid">j</a>
-                            <a class="waves-effect waves-light grid">k</a>
-                            <a class="waves-effect waves-light grid">l</a>
-                            <a class="waves-effect waves-light grid">m</a>
-                            <a class="waves-effect waves-light grid">n</a>
-                            <a class="waves-effect waves-light grid">o</a>
-                            <a class="waves-effect waves-light grid">p</a>
-                            <a class="waves-effect waves-light grid">q</a>
-                            <a class="waves-effect waves-light grid">r</a>
-                            <a class="waves-effect waves-light grid">s</a>
-                            <a class="waves-effect waves-light grid">t</a>
-                            <a class="waves-effect waves-light grid">u</a>
-                            <a class="waves-effect waves-light grid">v</a>
-                            <a class="waves-effect waves-light grid">w</a>
-                            <a class="waves-effect waves-light grid">x</a>
-                            <a class="waves-effect waves-light grid">y</a>
-                            <a class="waves-effect waves-light grid">z</a>
-
+                            <p id="noParamMsg">Add parameters for this chapter to see them here.</p>
                         </div>
                         <div id="tabAddParam" class="col s12 tabParams unitParam">
                             <form class="col s12">
-                                <a id="selectedParam" data-selected-id="0" class='dropdown-button btn selectedParam' href='#' data-beloworigin="true" data-activates='ddParams'>Edit Parameter</a>
-                                <ul id='ddParams' class='dropdown-content'></ul><br/>
                                 <div class="row">
                                     <div class="input-field col s6">
                                         <input id="txtParamName" type="text" class="validate">
@@ -272,15 +238,20 @@
                                 <div class="row">
                                     <div class="input-field col s6">
                                         <input id="txtParamValue" type="text" class="validate">
-                                        <label for="txtParamValue">Value</label>
+                                        <label for="txtParamValue">Min</label>
                                     </div>
                                     <div class="input-field col s6">
                                         <input id="txtParamDefaultValue" type="text" class="validate">
-                                        <label for="txtParamDefaultValue">Default Value</label>
+                                        <label for="txtParamDefaultValue">Max</label>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <a class="waves-effect waves-light btn" id="btnAddParam">Add/Update Parameter</a>
+                                <div class="input-field row" style="float: right;">
+                                    <button type="button" name="btnAddParam" id="btnAddParam" class="btn-floating btn-medium waves-effect waves-light green">
+                                        <i class="material-icons">add</i>
+                                    </button>
+                                    <button type="button" name="btnDelParam" id="btnDelParam" class="btn-floating btn-medium waves-effect waves-light red">
+                                        <i class="material-icons">delete</i>
+                                    </button>
                                 </div>
                             </form>
                         </div>
@@ -295,42 +266,15 @@
                     <div class="row">
                         <div class="col s12">
                             <ul class="tabs margin-bottom-20">
-                                <li class="tab col s3"><a class="active " href="#tabUnits" >Units</a></li>
-                                <li class="tab col s3"><a href="#tabAddUnit" id="addNewUnit">Add New</a></li>
+                                <li class="tab col s3"><a id="viewUnits" class="active " href="#tabUnits" >Units</a></li>
+                                <li class="tab col s3"><a id="viewAddUnits" href="#tabAddUnit">Add</a></li>
                             </ul>
                         </div>
                         <div id="tabUnits" class="col s12 tabRegion unitTab">
-                            <a class="waves-effect waves-light grid">a</a>
-                            <a class="waves-effect waves-light grid">b</a>
-                            <a class="waves-effect waves-light grid">c</a>
-                            <a class="waves-effect waves-light grid">d</a>
-                            <a class="waves-effect waves-light grid">e</a>
-                            <a class="waves-effect waves-light grid">f</a>
-                            <a class="waves-effect waves-light grid">g</a>
-                            <a class="waves-effect waves-light grid">h</a>
-                            <a class="waves-effect waves-light grid">i</a>
-                            <a class="waves-effect waves-light grid">j</a>
-                            <a class="waves-effect waves-light grid">k</a>
-                            <a class="waves-effect waves-light grid">l</a>
-                            <a class="waves-effect waves-light grid">m</a>
-                            <a class="waves-effect waves-light grid">n</a>
-                            <a class="waves-effect waves-light grid">o</a>
-                            <a class="waves-effect waves-light grid">p</a>
-                            <a class="waves-effect waves-light grid">q</a>
-                            <a class="waves-effect waves-light grid">r</a>
-                            <a class="waves-effect waves-light grid">s</a>
-                            <a class="waves-effect waves-light grid">t</a>
-                            <a class="waves-effect waves-light grid">u</a>
-                            <a class="waves-effect waves-light grid">v</a>
-                            <a class="waves-effect waves-light grid">w</a>
-                            <a class="waves-effect waves-light grid">x</a>
-                            <a class="waves-effect waves-light grid">y</a>
-                            <a class="waves-effect waves-light grid">z</a>
+                            <p id="noUnitMsg">Add units for this chapter to see them here.</p>
                         </div>
                         <div id="tabAddUnit" class="col s12 tabRegion unitTab">
                             <form class="col s12">
-                                <a id="selectedUnit" data-selected-id="0" class='dropdown-button btn selectedUnit' href='#' data-beloworigin="true" data-activates='ddUnits'>Edit Unit</a>
-                                <ul id='ddUnits' class='dropdown-content'></ul><br/>
                                 <div class="row">
                                     <div class="input-field col s4">
                                         <input id="txtUnitName" type="text" class="validate">
@@ -345,8 +289,13 @@
                                         <label for="txtUnitMultiplier">Multiplier</label>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <a id="btnAddUnit" class="waves-effect waves-light btn">Add Unit</a>
+                                <div class="input-field row" style="float: right;">
+                                    <button type="button" name="btnAddUnit" id="btnAddUnit" class="btn-floating btn-medium waves-effect waves-light green">
+                                        <i class="material-icons">add</i>
+                                    </button>
+                                    <button type="button" name="btnDelUnit" id="btnDelUnit" class="btn-floating btn-medium waves-effect waves-light red">
+                                        <i class="material-icons">delete</i>
+                                    </button>
                                 </div>
                             </form>
                         </div>

@@ -107,6 +107,8 @@ if ($action == "add_chapter") {
     $chapter_id = $_POST['chapter_id'];
     $units = $clsNsa->getUnits($chapter_id);
     echo json_encode($units);
+} else if ($action == "fetch_all_chapters") {
+    echo json_encode($clsNsa->getChapters());
 }
 ?>
 

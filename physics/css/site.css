@@ -173,6 +173,11 @@
     box-shadow: 0 0px 5px 5px rgba(0, 0, 0, 0.16), 0 0px 0px 0 rgba(0, 0, 0, 0.12);
 }
 
+.right{
+    box-shadow: 0 0px 5px 5px rgba(0, 0, 0, 0.16), 0 0px 0px 0 rgba(0, 0, 0, 0.12);
+    display: none;
+}
+
 .left a, .left li a, .right a, .right li a {
     display: block;
     font-size: 1rem;
@@ -183,7 +188,8 @@
 
 .middle{
     float: left;
-    box-shadow: 2px 0 5px -2px rgba(0, 0, 0, 0.16), 5px 0 5px -2px rgba(0, 0, 0, 0.12);
+    display: none;
+    //box-shadow: 2px 0 5px -2px rgba(0, 0, 0, 0.16), 5px 0 5px -2px rgba(0, 0, 0, 0.12);
 }
 
 .separator{
@@ -251,4 +257,17 @@ div.params{
 .math-func > a{
     text-transform: none;
 
+}
+
+.topics-section, .numericals-section {
+    display: none;
+}
+
+#noTopicsMsg, #noChapMsg, #noNumericalsMsg, #noParamMsg {
+    display: none;
+}
+
+.green {
+    margin-right: 12px;
+    margin-top: 0;
 }
