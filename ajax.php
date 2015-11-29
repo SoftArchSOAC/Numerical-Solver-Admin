@@ -7,7 +7,7 @@ $action = $_POST['action'];
 if ($action == "add_chapter") {
     $chapter_name = $_POST['name'];
     $FIELDS = array("name", "app_id");
-    $VALUES = array($chapter_name, 1);
+    $VALUES = array($chapter_name, 3);
     $status = $clsNsa->addChapter($FIELDS, $VALUES);
     echo json_encode($status);
 } else if ($action == "delete_chapter") {
@@ -36,6 +36,10 @@ if ($action == "add_chapter") {
     $VALUES = array($num_identifier, $topic_id);
     $status = $clsNsa->addNumerical($FIELDS, $VALUES);
     echo json_encode($status);
+} else if ($action == "delete_numerical") {
+    $ID = $_POST['numerical_id'];
+    $status = $clsNsa->deleteNumerical($ID);
+    echo json_encode($status);
 } else if ($action == "get_topic_env") {
     $topic_id = $_POST['topic_id'];
     $numericals = $clsNsa->getTopicEnv($topic_id);
@@ -44,6 +48,18 @@ if ($action == "add_chapter") {
     $numerical_statement = $_POST['num_statement'];
     $numerical_id = $_POST['numerical_id'];
     $status = $clsNsa->updateStatement(array('statement'), array($numerical_statement), $numerical_id);
+    echo json_encode($status);
+} else if ($action == "update_question") {
+    $numerical_statement = $_POST['num_statement'];
+    $formula_string = $_POST['formula_string'];
+    $numerical_id = $_POST['numerical_id'];
+    $status = $clsNsa->updateStatement(array('statement'), array($numerical_statement), $numerical_id);
+    $formula_id = $clsNsa->checkFormulaExists($numerical_id);
+    if ($formula_id == 0) {
+        $status = $clsNsa->addFormulaString(array('string', 'numerical_id'), array($formula_string, $numerical_id));
+    } else {
+        $status = $clsNsa->updateFormulaString(array('string', 'numerical_id'), array($formula_string, $numerical_id), $formula_id);
+    }
     echo json_encode($status);
 } else if ($action == "add_formula_string") {
     $formula_string = $_POST['formula_string'];

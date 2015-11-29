@@ -140,15 +140,15 @@
                 <div class="container-fluid margin-left-30 margin-bottom-50 ">
                     <h5>Statement For <span class="selectedNumerical theme-color">..</span></h5>
                     <div class="row">
-                        <div class="input-field col s9">
+                        <div class="input-field col s12">
                             <textarea id="txtNumStatement" class="materialize-textarea textarea"></textarea>
                             <label for="txtNumStatement">Statement</label>
                         </div>
-                        <div class="input-field col s3">
-                            <button type="button" name="btnAddStatement" id="btnAddStatement" class="btn-floating btn-medium waves-effect waves-light red" title="Add Statement" >
-                                <i class="material-icons">add</i>
-                            </button>
-                        </div>
+                        <!--<div class="input-field col s3">
+                                <button type="button" name="btnAddStatement" id="btnAddStatement" class="btn-floating btn-medium waves-effect waves-light red" title="Add Statement" >
+                                    <i class="material-icons">add</i>
+                                </button>
+                            </div>-->
                     </div>
                 </div>
                 <!-- -------------------
@@ -158,22 +158,22 @@
                 <div class="container-fluid margin-left-30 margin-bottom-50">
                     <h5>Formula String For <span class="selectedNumerical theme-color">..</span></h5>
                     <div class="row">
-                        <div class="input-field col s9">
+                        <div class="input-field col s12">
                             <textarea id="txtNumFormulaString" class="materialize-textarea textarea"></textarea>
                             <label for="txtNumFormulaString">Formula String </label>
                         </div>
-                        <div class="input-field col s3">
-                            <button type="button" name="btnAddFormula" id="btnAddFormula" class="btn-floating btn-medium waves-effect waves-light red" title="Add Formula String">
-                                <i class="material-icons">add</i>
-                            </button>
-                        </div>
+                        <!--<div class="input-field col s3">
+                                <button type="button" name="btnAddFormula" id="btnAddFormula" class="btn-floating btn-medium waves-effect waves-light red" title="Add Formula String">
+                                    <i class="material-icons">add</i>
+                                </button>
+                            </div>-->
                         <div class="input-field col s12 all-math-op">
                             <div class="input-field col s4">
-                                <a class="waves-effect waves-light btn btn-small grid ">=</a>
                                 <a class="waves-effect waves-light btn btn-small grid ">+</a>
                                 <a class="waves-effect waves-light btn btn-small grid ">-</a>
                                 <a class="waves-effect waves-light btn btn-small grid ">*</a>
                                 <a class="waves-effect waves-light btn btn-small grid ">/</a>
+                                <a class="waves-effect waves-light btn btn-small grid ">=</a>
                                 <a class="waves-effect waves-light btn btn-small grid ">%</a>
                                 <a class="waves-effect waves-light btn btn-small grid ">(</a>
                                 <a class="waves-effect waves-light btn btn-small grid ">)</a>
@@ -182,7 +182,7 @@
                                 <a class="waves-effect waves-light btn btn-small grid ">[</a>
                                 <a class="waves-effect waves-light btn btn-small grid ">]</a>
                             </div>
-                            <div class="input-field col s3 math-op">
+                            <div class="input-field col s2 math-num">
                                 <a class="waves-effect waves-light btn btn-small grid">1</a>
                                 <a class="waves-effect waves-light btn btn-small grid">2</a>
                                 <a class="waves-effect waves-light btn btn-small grid">3</a>
@@ -192,11 +192,11 @@
                                 <a class="waves-effect waves-light btn btn-small grid">7</a>
                                 <a class="waves-effect waves-light btn btn-small grid">8</a>
                                 <a class="waves-effect waves-light btn btn-small grid">9</a>
-                                <a class="waves-effect waves-light btn btn-small grid" style="visibility: hidden">0</a>
+                                <a class="waves-effect waves-light btn btn-small grid">.</a>
                                 <a class="waves-effect waves-light btn btn-small grid">0</a>
                             </div>
-                            <div class="input-field col s5 math-func">
-                                <a class="waves-effect waves-light grid"> abs</a>
+                            <div class="input-field col s6 math-func">
+                                <a class="waves-effect waves-light grid">abs</a>
                                 <a class="waves-effect waves-light grid">sqrt</a>
                                 <a class="waves-effect waves-light grid">cbrt</a>
                                 <a class="waves-effect waves-light grid">ceil</a>
@@ -211,15 +211,17 @@
                             </div>
                         </div>
                     </div>
+                    <a class="waves-effect waves-light btn margin-top-40" id="btnUpdateQuestion">Add/Update</a>
                 </div>
                 <!-- -------------------
                 END SECTION: FORMULA -->
             </div>
             <div class="col s3 right">
                 <!-- BEGIN SECTION: PARAMETERS -->
-                <div class="container params">
+                <div class="container params" >
                     <div class="row">
                         <div class="col s12">
+                            <span id="tempParam"></span> <span id="tempUnit"></span>
                             <ul class="tabs margin-bottom-20">
                                 <li class="tab col s3"><a class="active" href="#tabParams">Parameters</a></li>
                                 <li class="tab col s3"><a href="#tabAddParam" id="addNewParam">Add New</a></li>
@@ -252,7 +254,6 @@
                             <a class="waves-effect waves-light grid">x</a>
                             <a class="waves-effect waves-light grid">y</a>
                             <a class="waves-effect waves-light grid">z</a>
-
                         </div>
                         <div id="tabAddParam" class="col s12 tabParams unitParam">
                             <form class="col s12">
@@ -295,10 +296,10 @@
                         <div class="col s12">
                             <ul class="tabs margin-bottom-20">
                                 <li class="tab col s3"><a class="active " href="#tabUnits" >Units</a></li>
-                                <li class="tab col s3"><a href="#tabAddUnit" id="addNewUnit">Add New</a></li>
+                                <li class="tab col s3"><a href="#tabAddUnit" class="tabAddUnit">Add New</a></li>
                             </ul>
                         </div>
-                        <div id="tabUnits" class="col s12 tabRegion unitTab">
+                        <div id="tabUnits" class="col s12 tabRegion unitTab wait">
                             <a class="waves-effect waves-light grid">a</a>
                             <a class="waves-effect waves-light grid">b</a>
                             <a class="waves-effect waves-light grid">c</a>
@@ -358,6 +359,7 @@
         <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="js/materialize.min.js"></script>
         <script type="text/javascript" src="js/NSA.js"></script>
+        <script type="text/javascript" src="js/jquery.pulsate.min.js"></script>
         <script>
             $(function () {
                 NSA.init();

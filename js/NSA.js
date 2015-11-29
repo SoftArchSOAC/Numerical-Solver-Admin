@@ -114,6 +114,8 @@ var NSA = function () {
                     if (update_id === 0) {
                         var newLi = '<li><a href="javascript:;" class="param" data-param-symbol="' + param_symbol + '" data-param-value="' + param_value + '" data-param-default="' + param_default_value + '" >' + param_name + '</a><a class="deleteParam" data-id=' + result + '>X</a></li>';
                         $("#ddParams").append(newLi);
+                        var newParam = '<a class="waves-effect waves-light grid param-grid" data-id="' + result + '">' + param_name + '</a>';
+                        $("#tabParams").append(newParam);
                         swal('Great!', 'Parameter Added!', 'success');
                     } else {
                         $('#selectedParam').html(param_name);
@@ -150,6 +152,8 @@ var NSA = function () {
                     if (update_id === 0) {
                         var newLi = '<li><a href="javascript:;" class="unit" data-unit-symbol="' + unit_symbol + '" data-unit-multiplier="' + unit_multiplier + '" >' + unit_name + '</a><a class="deleteUnit" data-id=' + result + '>X</a></li>';
                         $("#ddUnits").append(newLi);
+                        var newUnit = '<a class="waves-effect waves-light grid unit-grid" data-id="' + result + '">' + unit_name + '</a>';
+                        $("#tabUnits").append(newUnit);
                         swal('Great!', 'Unit Added!', 'success');
                     } else {
                         $('#selectedUnit').html(unit_name);
@@ -171,6 +175,29 @@ var NSA = function () {
         });
     };
 
+    var updateQuestion = function (num_statement, formula_string, numerical_id) {
+        $.ajax({
+            type: "POST",
+            url: "ajax.php",
+            dataType: "json",
+            data: {action: 'update_question', num_statement: num_statement, formula_string: formula_string, numerical_id: numerical_id},
+            success: function (result) {
+                if (result < 1) {
+                    sweetAlert('Oops...', 'Something went wrong!', 'error');
+                } else {
+                    $('#txtNumStatement').val(num_statement);
+                    $('#txtNumFormulaString').val(formula_string);
+
+                    $tempNum = $(".deleteNumerical[data-id=" + numerical_id + "]").parent('li').find('a.numerical');
+                    $tempNum.attr("data-formula-string", formula_string);
+                    $tempNum.attr("data-num-statement", num_statement);
+
+                    swal('Great!', 'Question Updated!', 'success');
+                }
+            }
+        });
+    };
+
 
     /*
      * DELETE STUFF
@@ -187,8 +214,10 @@ var NSA = function () {
                     sweetAlert('Oops...', 'Something went wrong!', 'error');
                 } else {
                     $(".deleteChapter[data-id=" + chapter_id + "]").parent("li").remove();
-                    swal('Done!', 'Chapter Deleted!', 'success');
-                    location.reload();
+                    swal({title: 'Done!', text: 'Chapter Deleted!', type: 'success', confirmButtonText: 'OK!', closeOnConfirm: false},
+                    function () {
+                        location.reload();
+                    });
                 }
             }
         });
@@ -205,8 +234,30 @@ var NSA = function () {
                     sweetAlert('Oops...', 'Something went wrong!', 'error');
                 } else {
                     $(".deleteTopic[data-id=" + topic_id + "]").parent("li").remove();
-                    swal('Done!', 'Topic Deleted!', 'success');
-                    location.reload();
+                    swal({title: 'Done!', text: 'Topic Deleted!', type: 'success', confirmButtonText: 'OK!', closeOnConfirm: false},
+                    function () {
+                        location.reload();
+                    });
+                }
+            }
+        });
+    };
+
+    var deleteNumerical = function (numerical_id) {
+        $.ajax({
+            type: "POST",
+            url: "ajax.php",
+            dataType: "json",
+            data: {action: 'delete_numerical', numerical_id: numerical_id},
+            success: function (result) {
+                if (result < 1) {
+                    sweetAlert('Oops...', 'Something went wrong!', 'error');
+                } else {
+                    $(".deleteNumerical[data-id=" + numerical_id + "]").parent("li").remove();
+                    swal({title: 'Done!', text: 'Numerical Deleted!', type: 'success', confirmButtonText: 'OK!', closeOnConfirm: false},
+                    function () {
+                        location.reload();
+                    });
                 }
             }
         });
@@ -223,8 +274,10 @@ var NSA = function () {
                     sweetAlert('Oops...', 'Something went wrong!', 'error');
                 } else {
                     $(".deleteParam[data-id=" + param_id + "]").parent("li").remove();
-                    swal('Done!', 'Parameter Deleted!', 'success');
-                    location.reload();
+                    swal({title: 'Done!', text: 'Parameter Deleted!', type: 'success', confirmButtonText: 'OK!', closeOnConfirm: false},
+                    function () {
+                        location.reload();
+                    });
                 }
             }
         });
@@ -241,8 +294,10 @@ var NSA = function () {
                     sweetAlert('Oops...', 'Something went wrong!', 'error');
                 } else {
                     $(".deleteUnit[data-id=" + unit_id + "]").parent("li").remove();
-                    swal('Done!', 'Unit Deleted!', 'success');
-                    location.reload();
+                    swal({title: 'Done!', text: 'Unit Deleted!', type: 'success', confirmButtonText: 'OK!', closeOnConfirm: false},
+                    function () {
+                        location.reload();
+                    });
                 }
             }
         });
@@ -319,7 +374,6 @@ var NSA = function () {
         });
     };
 
-
     /* Fetches & Sets the environment(all the dependant element values) to the selected topic. */
     var setTopicEnv = function (topic_id) {
         $.ajax({
@@ -358,6 +412,7 @@ var NSA = function () {
             //swal({   title: 'Are you sure?',   text: 'You will not be able to recover this imaginary file!',   type: 'warning',   showCancelButton: true,   confirmButtonColor: '#3085d6',   cancelButtonColor: '#d33',   confirmButtonText: 'Yes, delete it!',   closeOnConfirm: false }, function() {   swal(     'Deleted!',     'Your file has been deleted.',     'success'   ); });
             //swal({   title: 'Are you sure?',   text: 'You will not be able to recover this imaginary file!',   type: 'warning',   showCancelButton: true,   confirmButtonColor: '#3085d6',   cancelButtonColor: '#d33',   confirmButtonText: 'Yes, delete it!',   cancelButtonText: 'No, cancel plx!',   confirmButtonClass: 'confirm-class',   cancelButtonClass: 'cancel-class',   closeOnConfirm: false,   closeOnCancel: false }, function(isConfirm) {   if (isConfirm) {     swal(       'Deleted!',       'Your file has been deleted.',       'success'     );   } else {     swal(       'Cancelled',       'Your imaginary file is safe :)',       'error'     );   } });
 
+
             /*
              * CHAPTERS :
              */
@@ -368,7 +423,10 @@ var NSA = function () {
 
             $("#ddChapters").on("click", ".deleteChapter", function (event) {
                 var chapter_id = $(this).attr("data-id");
-                deleteChapter(chapter_id);
+                swal({title: 'Are you sure?', text: 'You will not be able to recover this action!', type: 'warning', showCancelButton: true, confirmButtonColor: '#3085d6', cancelButtonColor: '#f44336', confirmButtonText: 'I Know!', closeOnConfirm: false},
+                function () {
+                    deleteChapter(chapter_id);
+                });
             });
 
             $("#ddChapters").on("click", ".chapter", function (event) {
@@ -400,7 +458,10 @@ var NSA = function () {
 
             $("#ddTopics").on("click", ".deleteTopic", function (event) {
                 var topic_id = $(this).attr("data-id");
-                deleteTopic(topic_id);
+                swal({title: 'Are you sure?', text: 'You will not be able to recover this action!', type: 'warning', showCancelButton: true, confirmButtonColor: '#3085d6', cancelButtonColor: '#f44336', confirmButtonText: 'I Know!', closeOnConfirm: false},
+                function () {
+                    deleteTopic(topic_id);
+                });
             });
 
             $("#ddTopics").on("click", ".topic", function (event) {
@@ -430,7 +491,10 @@ var NSA = function () {
 
             $("#ddNumericals").on("click", ".deleteNumerical", function (event) {
                 var numerical_id = $(this).attr("data-id");
-                deleteNumerical(numerical_id);
+                swal({title: 'Are you sure?', text: 'You will not be able to recover this action!', type: 'warning', showCancelButton: true, confirmButtonColor: '#3085d6', cancelButtonColor: '#f44336', confirmButtonText: 'I Know!', closeOnConfirm: false},
+                function () {
+                    deleteNumerical(numerical_id);
+                });
             });
 
             $("#ddNumericals").on("click", ".numerical", function (event) {
@@ -458,7 +522,6 @@ var NSA = function () {
                     swal({title: 'You Forgot!', text: 'Please select a Numerical!', type: 'warning', timer: 2000});
                 }
             });
-
             $("#btnAddFormula").click(function () {
                 var formula_string = $("#txtNumFormulaString").val();
                 var numerical_id = $("#selectedNumerical").attr("data-selected-id");
@@ -466,6 +529,27 @@ var NSA = function () {
                     addFormulaString(formula_string, numerical_id);
                 } else {
                     swal({title: 'You Forgot!', text: 'Please select a chapter!', type: 'warning', timer: 2000});
+                }
+            });
+
+
+            /*
+             *  ADD / UPDATE FORMULA & STATEMENT 
+             */
+            $("#btnUpdateQuestion").click(function () {
+
+                var num_statement = $("#txtNumStatement").val();
+                var numerical_id = $("#selectedNumerical").attr("data-selected-id");
+
+                var formula_string = $("#txtNumFormulaString").val();
+                var numerical_id = $("#selectedNumerical").attr("data-selected-id");
+
+                if (numerical_id > 0) {
+//                    addStatement(num_statement, numerical_id);
+//                    addFormulaString(formula_string, numerical_id);
+                    updateQuestion(num_statement, formula_string, numerical_id);
+                } else {
+                    swal({title: 'You Forgot!', text: 'Please select a Numerical!', type: 'warning', timer: 2000});
                 }
             });
 
@@ -500,7 +584,10 @@ var NSA = function () {
 
             $("#ddParams").on("click", ".deleteParam", function (event) {
                 var param_id = $(this).attr("data-id");
-                deleteParam(param_id);
+                swal({title: 'Are you sure?', text: 'You will not be able to recover this action!', type: 'warning', showCancelButton: true, confirmButtonColor: '#3085d6', cancelButtonColor: '#f44336', confirmButtonText: 'I Know!', closeOnConfirm: false},
+                function () {
+                    deleteParam(param_id);
+                });
             });
 
             $("#ddParams").on("click", ".param", function (event) {
@@ -531,6 +618,44 @@ var NSA = function () {
                 }
             });
 
+            $("#tabParams").on("click", "a", function (event) {
+                $this = $(this);
+                //$('#tempParam').html($this.text());
+                $('#tempParam').attr('data-param', $this.text());
+                $('#tempParam').attr('data-param-id', $this.attr('data-id'));
+
+                $("#tabParams a").removeClass('selectedGrid');
+                $this.addClass('selectedGrid');
+
+                $('.middle').addClass('wait');
+                $('#tabUnits').removeClass('wait');
+
+                var tempUnit = $('#tempUnit').attr('data-unit');
+                if (typeof tempUnit === typeof undefined && tempUnit === false || tempUnit == null || tempUnit === null) {
+                    $('#tabUnits').pulsate({color: "#bb2413", reach: 20, repeat: 5, speed: 1, glow: false});
+                }
+            });
+
+            $("#tabUnits").on("click", "a", function (event) {
+                $this = $(this);
+                //$('#tempUnit').html($this.text());
+                $('#tempUnit').attr('data-unit', $this.text());
+                $('#tempUnit').attr('data-unit-id', $this.attr('data-id'));
+
+                $("#tabUnits a").removeClass('selectedGrid');
+                $this.addClass('selectedGrid');
+                $('.middle').removeClass('wait');
+
+                var param_id = $('#tempParam').attr('data-param-id');
+                var unit_id = $('#tempUnit').attr('data-unit-id');
+                var param = $('#tempParam').attr('data-param');
+                var unit = $('#tempUnit').attr('data-unit');
+                var displayParam = '{' + param + ', ' + unit + '}';
+                NSA.insertAtCaret('txtNumFormulaString', displayParam);
+                
+                var paramStr = '{' + param_id + ', ' + unit_id + '}';
+            });
+
             /*
              * UNITS
              */
@@ -559,7 +684,10 @@ var NSA = function () {
 
             $("#ddUnits").on("click", ".deleteUnit", function (event) {
                 var unit_id = $(this).attr("data-id");
-                deleteUnit(unit_id);
+                swal({title: 'Are you sure?', text: 'You will not be able to recover this action!', type: 'warning', showCancelButton: true, confirmButtonColor: '#3085d6', cancelButtonColor: '#f44336', confirmButtonText: 'I Know!', closeOnConfirm: false},
+                function () {
+                    deleteUnit(unit_id);
+                });
             });
 
             $("#ddUnits").on("click", ".unit", function (event) {
@@ -587,22 +715,10 @@ var NSA = function () {
                 }
             });
 
-
-            $("#addNewParam").click(function () {
-                $(".unitTab").fadeOut();
-                $(".unitTab").css("visibility", "collapse");
-            });
-
-            $("#addNewUnit").click(function () {
-                $(".unitParam").fadeOut();
-            });
-
             /*on math button click*/
             $(".all-math-op div a").click(function () {
                 var currentFormula = $("#txtNumFormulaString").val();
                 var content = $(this).text();
-
-//                $("#txtNumFormulaString").val(currentFormula + content);
                 NSA.insertAtCaret("txtNumFormulaString", content);
             });
 

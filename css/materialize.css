@@ -2,6 +2,8 @@
  * Materialize v0.97.1 (http://materializecss.com)
  * Copyright 2014-2015 Materialize
  * MIT License (https://raw.githubusercontent.com/Dogfalo/materialize/master/LICENSE)
+ *
+ * Red: #f44336
  */
 .materialize-red.lighten-5 {
     background-color: #fdeaeb !important; }
@@ -8371,7 +8373,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     box-shadow: 0 0px 5px 5px rgba(0, 0, 0, 0.16), 0 0px 0px 0 rgba(0, 0, 0, 0.12);
 }
 
-.left a, .left li a, .right a, .right li a {
+.left a, .left li a, .right a, .right li a, .middle a, .middle li a{
     display: block;
     font-size: 1rem;
     height: 64px;
@@ -8434,10 +8436,25 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 }
 
 #tabParams{
-    height: 200px !important;
+    height: 150px !important;
     overflow: auto;
 }
 
 div.params{
-    min-height: 300px;
+    //min-height: 300px;
+}
+
+.math-num a:nth-child(3n+1){
+    clear: left;
+}
+
+.selectedGrid{
+    color: #FFF;
+    /*color: #26a69a;*/
+    background: #ee6e73;
+}
+
+.wait{
+    opacity: 0.5;
+    pointer-events: none;
 }
