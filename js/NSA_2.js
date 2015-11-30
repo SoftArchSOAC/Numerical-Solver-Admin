@@ -4,6 +4,7 @@
 var NSA = function () {
 
     // private functions & variables
+    focused = "txtNumFormulaString";
 
     var myFunc = function () {
         alert("HERERERERE");
@@ -25,6 +26,11 @@ var NSA = function () {
                 } else {
                     var newLi = '<li><a href="javascript:;" class="chapter">' + chapter_name + '</a><a class="deleteChapter" data-id="' + result + '">X</a></li>';
                     $("#ddChapters").append(newLi);
+
+                    $("#noChapMsg").hide();
+                    $("#selectedChapter").show();
+                    $("#viewChapters").click();
+
                     swal('Great!', 'Chapter Added!', 'success');
                 }
             }
@@ -43,6 +49,11 @@ var NSA = function () {
                 } else {
                     var newLi = '<li><a href="javascript:;" class="topic">' + topic_name + '</a><a class="deleteTopic" data-id="' + result + '">X</a></li>';
                     $("#ddTopics").append(newLi);
+
+                    $("#noTopicsMsg").hide();
+                    $("#selectedTopic").show();
+                    $("#viewTopics").click();
+
                     swal('Great!', 'Topic Added!', 'success');
                 }
             }
@@ -61,6 +72,11 @@ var NSA = function () {
                 } else {
                     var newLi = '<li><a href="javascript:;" class="numerical">' + num_identifier + '</a><a class="deleteNumerical" data-id="' + result + '">X</a></li>';
                     $("#ddNumericals").append(newLi);
+
+                    $("#noNumericalsMsg").hide();
+                    $("#selectedNumerical").show();
+                    $("#viewNumericals").click();
+
                     swal('Great!', 'Numerical Added!', 'success');
                 }
             }
@@ -111,7 +127,10 @@ var NSA = function () {
                 if (result < 1) {
                     sweetAlert('Oops...', 'Something went wrong!', 'error');
                 } else {
+                    $parambtn = null;
+
                     if (update_id === 0) {
+<<<<<<< HEAD:js/NSA_2.js
                         var newLi = '<li><a href="javascript:;" class="param" data-param-symbol="' + param_symbol + '" data-param-value="' + param_value + '" data-param-default="' + param_default_value + '" >' + param_name + '</a><a class="deleteParam" data-id=' + result + '>X</a></li>';
                         $("#ddParams").append(newLi);
                         var newParam = '<a class="waves-effect waves-light grid param-grid" data-id="' + result + '">' + param_name + '</a>';
@@ -125,14 +144,34 @@ var NSA = function () {
                         $tempLi.attr('data-param-value', param_value);
                         $tempLi.attr('data-param-default', param_default_value);
                         $(".param-grid[data-id=" + update_id + "]").html(param_name);
+=======
+                        $("#tabParams").append('<a class="waves-effect waves-light grid param-grid parambtn"></a>');
+                        $parambtn = $("#tabParams").children('.parambtn').last();
+                        $parambtn.attr("data-id", result);
+
+                        swal('Great!', 'Parameter Added!', 'success');
+                    } else {
+                        $parambtn = $(".parambtn[data-id=" + update_id + "]");
+
+>>>>>>> origin/master:physics/js/NSA.js
                         swal('Great!', 'Parameter Updated!', 'success');
                     }
+                    $parambtn.html(param_symbol);
+                    $parambtn.attr("title", param_name);
+
+                    //$parambtn.attr("data-id", update_id);
+                    $parambtn.attr("data-name", param_name);
+                    $parambtn.attr("data-symbol", param_symbol);
+                    $parambtn.attr("data-value", param_value);
+                    $parambtn.attr("data-default_value", param_default_value);
 
                     $("#txtParamName").val('');
                     $("#txtParamSymbol").val('');
                     $("#txtParamValue").val('');
                     $("#txtParamDefaultValue").val('');
 
+                    $("#noParamMsg").hide();
+                    $("#viewParameters").click();
                 }
             }
         });
@@ -148,7 +187,10 @@ var NSA = function () {
                 if (result < 1) {
                     sweetAlert('Oops...', 'Something went wrong!', 'error');
                 } else {
+                    $unitbtn = null;
+
                     if (update_id === 0) {
+<<<<<<< HEAD:js/NSA_2.js
                         var newLi = '<li><a href="javascript:;" class="unit" data-unit-symbol="' + unit_symbol + '" data-unit-multiplier="' + unit_multiplier + '" >' + unit_name + '</a><a class="deleteUnit" data-id=' + result + '>X</a></li>';
                         $("#ddUnits").append(newLi);
                         var newUnit = '<a class="waves-effect waves-light grid unit-grid" data-id="' + result + '">' + unit_name + '</a>';
@@ -161,13 +203,31 @@ var NSA = function () {
                         $tempLi.attr('data-unit-symbol', unit_symbol);
                         $tempLi.attr('data-unit-multiplier', unit_multiplier);
                         $(".unit-grid[data-id=" + update_id + "]").html(unit_name);
+=======
+                        $("#tabUnits").append('<a class="waves-effect waves-light grid param-grid unitbtn"></a>');
+                        $unitbtn = $("#tabUnits").children('.unitbtn').last();
+                        $unitbtn.attr("data-id", result);
+
+                        swal('Great!', 'Unit Added!', 'success');
+                    } else {
+                        $unitbtn = $(".unitbtn[data-id=" + update_id + "]");
+
+>>>>>>> origin/master:physics/js/NSA.js
                         swal('Great!', 'Unit Updated!', 'success');
                     }
+                    $unitbtn.html(unit_symbol);
+                    $unitbtn.attr("title", unit_name);
+
+                    $unitbtn.attr("data-name", unit_name);
+                    $unitbtn.attr("data-symbol", unit_symbol);
+                    $unitbtn.attr("data-value", unit_multiplier);
 
                     $("#txtUnitName").val('');
                     $("#txtUnitSymbol").val('');
                     $("#txtUnitMultiplier").val('');
 
+                    $("#noUnitMsg").hide();
+                    $("#viewUnits").click();
                 }
             }
         });
@@ -248,11 +308,21 @@ var NSA = function () {
                 if (result < 1) {
                     sweetAlert('Oops...', 'Something went wrong!', 'error');
                 } else {
+<<<<<<< HEAD:js/NSA_2.js
                     $(".deleteParam[data-id=" + param_id + "]").parent("li").remove();
                     swal({title: 'Done!', text: 'Parameter Deleted!', type: 'success', confirmButtonText: 'OK!', closeOnConfirm: false},
                     function () {
                         location.reload();
                     });
+=======
+                    $(".parambtn[data-id = " + param_id + "]").detach();
+                    if ($(".parambtn").length === 0) {
+                        $("#noParamMsg").show();
+                    }
+                    $("#viewParameters").click();
+
+                    swal('Done!', 'Parameter Deleted!', 'success');
+>>>>>>> origin/master:physics/js/NSA.js
                 }
             }
         });
@@ -268,11 +338,22 @@ var NSA = function () {
                 if (result < 1) {
                     sweetAlert('Oops...', 'Something went wrong!', 'error');
                 } else {
+<<<<<<< HEAD:js/NSA_2.js
                     $(".deleteUnit[data-id=" + unit_id + "]").parent("li").remove();
                     swal({title: 'Done!', text: 'Unit Deleted!', type: 'success', confirmButtonText: 'OK!', closeOnConfirm: false},
                     function () {
                         location.reload();
                     });
+=======
+                    $(".unitbtn[data-id = " + unit_id + "]").detach();
+                    if ($(".unitbtn").length === 0) {
+                        $("#noUnitMsg").show();
+                    }
+                    $("#viewUnits").click();
+
+                    swal('Done!', 'Unit Deleted!', 'success');
+
+>>>>>>> origin/master:physics/js/NSA.js
                 }
             }
         });
@@ -283,6 +364,32 @@ var NSA = function () {
      * FETCH STUFF
      */
 
+    /* Fetches all CHAPTERS & appends to Chapters Section */
+    var fetchChapters = function () {
+        $.ajax({
+            type: 'POST',
+            url: "ajax.php",
+            dataType: 'json',
+            data: {action: 'fetch_all_chapters'},
+            success: function (result) {
+                if (result.length > 0) {
+                    $("#noChapMsg").hide();
+                    $("#selectedChapter").show();
+                    $("#viewChapters").click();
+
+                    for (var i = 0; i < result.length; i++) {
+                        var newLi = '<li><a href="javascript:;" class="chapter">' + result[i].name + '</a><a class="deleteChapter" data-id=' + result[i].id + '>X</a></li>';
+                        $("#ddChapters").append(newLi);
+                    }
+                } else if (result === 0) {
+                    $("#noChapMsg").show();
+                    $("#selectedChapter").hide();
+                    $("#viewAddChapter").click();
+                }
+            }
+        });
+    };
+
     /* Fetches the TOPICS of a Chapter & appends to Topic Dropdown */
     var fetchTopics = function (chapter_id) {
         $.ajax({
@@ -292,10 +399,20 @@ var NSA = function () {
             data: {action: 'fetch_topics', chapter_id: chapter_id},
             success: function (result) {
                 if (result.length > 0) {
+                    $("#noTopicsMsg").hide();
+                    $("#selectedTopic").show();
+                    $("#viewTopics").click();
+
                     for (var i = 0; i < result.length; i++) {
                         var newLi = '<li><a href="javascript:;" class="topic">' + result[i].name + '</a><a class="deleteTopic" data-id=' + result[i].id + '>X</a></li>';
                         $("#ddTopics").append(newLi);
                     }
+                } else {
+                    $("#noTopicsMsg").show();
+                    $("#selectedTopic").hide();
+                    $("#viewAddTopic").click();
+
+                    $(".numericals-section").hide();
                 }
             }
         });
@@ -310,16 +427,32 @@ var NSA = function () {
             data: {action: 'fetch_params', chapter_id: chapter_id},
             success: function (result) {
                 if (result.length > 0) {
-                    var newParam = '', newLi = '';
                     for (var i = 0; i < result.length; i++) {
+<<<<<<< HEAD:js/NSA_2.js
                         // For param GRID
                         newParam += '<a class="waves-effect waves-light grid param-grid" data-id="' + result[i].id + '">' + result[i].name + '</a>';
+=======
+                        $("#tabParams").append('<a class="waves-effect waves-light grid param-grid parambtn"></a>');
+>>>>>>> origin/master:physics/js/NSA.js
 
-                        // For Param Dropdown List
-                        newLi += '<li><a href="javascript:;" class="param" data-param-symbol="' + result[i].symbol + '" data-param-value="' + result[i].value + '" data-param-default="' + result[i].default_value + '" >' + result[i].name + '</a><a class="deleteParam" data-id=' + result[i].id + '>X</a></li>';
+                        $newparam = $("#tabParams").children('.parambtn').last();
+
+                        $newparam.html(result[i].symbol);
+                        $newparam.attr("title", result[i].name);
+
+                        $newparam.attr("data-id", result[i].id);
+                        $newparam.attr("data-name", result[i].name);
+                        $newparam.attr("data-symbol", result[i].symbol);
+                        $newparam.attr("data-value", result[i].value);
+                        $newparam.attr("data-default_value", result[i].default_value);
                     }
-                    $("#tabParams").append(newParam);
-                    $("#ddParams").append(newLi);
+                    $("#btnDelParam").show();
+                    $("#noParamMsg").hide();
+                    $("#viewParameters").click();
+                } else {
+                    $("#btnDelParam").hide();
+                    $("#noParamMsg").show();
+                    $("#viewAddParameters").click();
                 }
             }
         });
@@ -334,16 +467,32 @@ var NSA = function () {
             data: {action: 'fetch_units', chapter_id: chapter_id},
             success: function (result) {
                 if (result.length > 0) {
-                    var newUnit = '', newLi = '';
                     for (var i = 0; i < result.length; i++) {
+<<<<<<< HEAD:js/NSA_2.js
                         // For Unit GRID
                         newUnit += '<a class="waves-effect waves-light grid unit-grid" data-id="' + result[i].id + '">' + result[i].name + '</a>';
+=======
+                        $("#tabUnits").append('<a class="waves-effect waves-light grid param-grid unitbtn"></a>');
 
-                        // For Unit Dropdown List
-                        newLi += '<li><a href="javascript:;" class="unit" data-unit-symbol="' + result[i].symbol + '" data-unit-multiplier="' + result[i].standard_multiplier + '" >' + result[i].name + '</a><a class="deleteUnit" data-id=' + result[i].id + '>X</a></li>';
+                        $newparam = $("#tabUnits").children('.unitbtn').last();
+
+                        $newparam.html(result[i].symbol);
+                        $newparam.attr("title", result[i].name);
+>>>>>>> origin/master:physics/js/NSA.js
+
+                        $newparam.attr("data-id", result[i].id);
+                        $newparam.attr("data-name", result[i].name);
+                        $newparam.attr("data-symbol", result[i].symbol);
+                        $newparam.attr("data-value", result[i].value);
+                        $newparam.attr("data-default_value", result[i].default_value);
                     }
-                    $("#tabUnits").append(newUnit);
-                    $("#ddUnits").append(newLi);
+                    $("#btnDelUnit").show();
+                    $("#noUnitMsg").hide();
+                    $("#viewUnits").click();
+                } else {
+                    $("#btnDelUnit").hide();
+                    $("#noUnitMsg").show();
+                    $("#viewAddUnits").click();
                 }
             }
         });
@@ -359,6 +508,10 @@ var NSA = function () {
             success: function (result) {
                 $("#ddNumericals").empty();
                 if (result.length > 0) {
+                    $("#noNumericalsMsg").hide();
+                    $("#selectedNumerical").show();
+                    $("#viewNumericals").click();
+
                     //Set the Numericals of selected Topic
                     for (var i = 0; i < result.length; i++) {
                         var formula_id = (result[i].formula_id !== null) ? result[i].formula_id : '';
@@ -366,6 +519,10 @@ var NSA = function () {
                         var newLi = '<li><a href="javascript:;" class="numerical" data-num-statement="' + result[i].statement + '" data-num-solution="' + result[i].solution + '" data-formula-id="' + formula_id + '" data-formula-string="' + formula_string + '">' + result[i].num_id + '</a><a class="deleteNumerical" data-id=' + result[i].id + '>X</a></li>';
                         $("#ddNumericals").append(newLi);
                     }
+                } else {
+                    $("#noNumericalsMsg").show();
+                    $("#selectedNumerical").hide();
+                    $("#viewAddNumericals").click();
                 }
             }
         });
@@ -391,6 +548,8 @@ var NSA = function () {
             /*
              * CHAPTERS :
              */
+            fetchChapters();
+
             $("#btnAddChapter").click(function () {
                 var chapter_name = $("#txtChapterName").val();
                 addChapter(chapter_name);
@@ -474,6 +633,7 @@ var NSA = function () {
 
             $("#ddNumericals").on("click", ".numerical", function (event) {
                 var numerical_id = $(this).siblings("a.deleteNumerical").attr("data-id");
+                $(".middle").show();
                 $("a.selectedNumerical").attr("data-selected-id", numerical_id);
                 $("a.selectedNumerical").html($(this).html());
                 $("span.selectedNumerical").html($(this).html());
@@ -508,12 +668,10 @@ var NSA = function () {
                 }
             });
 
-
             /*
              * PARAMETERS
              */
             $("#btnAddParam").click(function () {
-
                 var param_name = $("#txtParamName").val();
                 var param_symbol = $("#txtParamSymbol").val();
                 var param_value = $("#txtParamValue").val();
@@ -524,7 +682,7 @@ var NSA = function () {
                     if (param_name === '') {
                         swal({title: 'Missing!', text: 'Parameter Name!', type: 'warning', timer: 2000});
                     } else {
-                        var param_id = $("#selectedParam").attr("data-selected-id");
+                        var param_id = $("#viewAddParameters").attr("data-selected-id");
 
                         var update_id = 0;
                         if (param_id !== 0 && param_id !== '0') {
@@ -537,46 +695,78 @@ var NSA = function () {
                 }
             });
 
+<<<<<<< HEAD:js/NSA_2.js
             $("#ddParams").on("click", ".deleteParam", function (event) {
                 var param_id = $(this).attr("data-id");
                 swal({title: 'Are you sure?', text: 'You will not be able to recover this action!', type: 'warning', showCancelButton: true, confirmButtonColor: '#3085d6', cancelButtonColor: '#f44336', confirmButtonText: 'I Know!', closeOnConfirm: false},
                 function () {
                     deleteParam(param_id);
                 });
+=======
+            $("#btnDelParam").click(function () {
+                var param_id = $("#viewAddParameters").attr("data-selected-id");
+                deleteParam(param_id);
+>>>>>>> origin/master:physics/js/NSA.js
             });
 
-            $("#ddParams").on("click", ".param", function (event) {
-                $this = $(this);
+            $("#tabParams").parent().bind("contextmenu", function (event) {
+                event.preventDefault();
+            });
 
-                var param_id = $this.siblings("a.deleteParam").attr("data-id");
-                var old_param_id = $("#selectedParam").attr("data-selected-id");
+            $("#tabParams").on("mousedown", ".parambtn", function (event) {
+                if (event.button === 2) {
+                    $("#viewAddParameters").html("Edit");
+                    $("#btnAddParam").children(".material-icons").html('done');
+                    $("#btnDelParam").show();
+                    $("#viewAddParameters").click();
 
-                if (param_id !== old_param_id) {
-                    NSA.paramChanged();
+                    $("#viewAddParameters").attr("data-selected-id", $(this).attr('data-id'));
+                    $("#txtParamName").val($(this).attr('data-name'));
+                    $("#txtParamSymbol").val($(this).attr('data-symbol'));
+                    $("#txtParamValue").val($(this).attr('data-value'));
+                    $("#txtParamDefaultValue").val($(this).attr('data-default_value'));
 
-                    $("#selectedParam").attr("data-selected-id", param_id);
-                    $("#selectedParam").html($this.html());
-
-                    $("#txtParamName").val($this.html());
-                    $("#txtParamName").focus();
-
-                    $("#txtParamSymbol").val($this.attr('data-param-symbol'));
-                    $("#txtParamSymbol").focus();
-
-                    $("#txtParamValue").val($this.attr('data-param-value'));
-                    $("#txtParamValue").focus();
-
-                    $("#txtParamDefaultValue").val($this.attr('data-param-default'));
                     $("#txtParamDefaultValue").focus();
-
-                    //setTopicEnv(param_id);
+                    $("#txtParamValue").focus();
+                    $("#txtParamSymbol").focus();
+                    $("#txtParamName").focus();
                 }
+            });
+
+            $("#viewParameters").click(function () {
+                $("#viewAddParameters").attr("data-selected-id", 0);
+                $("#viewAddParameters").html("Add");
+                $("#btnAddParam").children(".material-icons").html('add');
+                $("#btnDelParam").hide();
+
+                //$(".right > div:nth-child(2)").show();
+            });
+
+            $("#viewAddParameters").click(function () {
+                var selected_id = $("#viewAddParameters").attr("data-selected-id");
+
+                if (selected_id === 0 || selected_id === '0') { //is adding
+                    $("#txtParamName").val("");
+                    $("#txtParamSymbol").val("");
+                    $("#txtParamValue").val("");
+                    $("#txtParamDefaultValue").val("");
+
+                    $("#txtParamName").blur();
+                    $("#txtParamSymbol").blur();
+                    $("#txtParamValue").blur();
+                    $("#txtParamDefaultValue").blur();
+
+                    $("#viewAddParameters").attr("data-selected-id", 0);
+                }
+
+                $("#viewAddParameters").focus();
+
+                //$(".right > div:nth-child(2)").hide();
             });
 
             /*
              * UNITS
              */
-
             $("#btnAddUnit").click(function () {
                 var unit_name = $("#txtUnitName").val();
                 var unit_symbol = $("#txtUnitSymbol").val();
@@ -587,7 +777,7 @@ var NSA = function () {
                     if (unit_name === '') {
                         swal({title: 'Missing!', text: 'Unit Name!', type: 'warning', timer: 2000});
                     } else {
-                        var unit_id = $("#selectedUnit").attr("data-selected-id");
+                        var unit_id = $("#viewAddUnits").attr("data-selected-id");
                         var update_id = 0;
                         if (unit_id !== 0 && unit_id !== '0') {
                             update_id = unit_id;
@@ -599,41 +789,91 @@ var NSA = function () {
                 }
             });
 
+<<<<<<< HEAD:js/NSA_2.js
             $("#ddUnits").on("click", ".deleteUnit", function (event) {
                 var unit_id = $(this).attr("data-id");
                 swal({title: 'Are you sure?', text: 'You will not be able to recover this action!', type: 'warning', showCancelButton: true, confirmButtonColor: '#3085d6', cancelButtonColor: '#f44336', confirmButtonText: 'I Know!', closeOnConfirm: false},
                 function () {
                     deleteUnit(unit_id);
                 });
+=======
+            $("#btnDelUnit").click(function () {
+                var unit_id = $("#viewAddUnits").attr("data-selected-id");
+                deleteUnit(unit_id);
+>>>>>>> origin/master:physics/js/NSA.js
             });
 
-            $("#ddUnits").on("click", ".unit", function (event) {
-                $this = $(this);
+            $("#tabUnits").parent().bind("contextmenu", function (event) {
+                event.preventDefault();
+            });
 
-                var unit_id = $this.siblings("a.deleteUnit").attr("data-id");
-                var old_unit_id = $("#selectedUnit").attr("data-selected-id");
+            $("#tabUnits").on("mousedown", ".unitbtn", function (event) {
+                if (event.button === 2) {
+                    $("#viewAddUnits").html("Edit");
+                    $("#btnAddUnit").children(".material-icons").html('done');
+                    $("#btnDelUnit").show();
+                    $("#viewAddUnits").click();
 
-                if (unit_id !== old_unit_id) {
-                    NSA.unitChanged();
+                    $("#viewAddUnits").attr("data-selected-id", $(this).attr('data-id'));
+                    $("#txtUnitName").val($(this).attr('data-name'));
+                    $("#txtUnitSymbol").val($(this).attr('data-symbol'));
+                    $("#txtUnitMultiplier").val($(this).attr('data-value'));
 
-                    $("#selectedUnit").attr('data-selected-id', unit_id);
-                    $("#selectedUnit").html($this.html());
-
-                    $("#txtUnitName").val($this.html());
                     $("#txtUnitName").focus();
-
-                    $("#txtUnitSymbol").val($this.attr('data-unit-symbol'));
                     $("#txtUnitSymbol").focus();
-
-                    $("#txtUnitMultiplier").val($this.attr('data-unit-multiplier'));
                     $("#txtUnitMultiplier").focus();
-
-                    //setTopicEnv(unit_id);
                 }
             });
 
+            $("#viewUnits").click(function () {
+                $("#viewAddUnits").attr("data-selected-id", 0);
+                $("#viewAddUnits").html("Add");
+                $("#btnAddUnit").children(".material-icons").html('add');
+                $("#btnDelUnit").hide();
 
+<<<<<<< HEAD:js/NSA_2.js
             
+=======
+                //$(".right > div:nth-child(1)").show();
+            });
+
+            $("#viewAddUnits").click(function () {
+                var selected_id = $("#viewAddUnits").attr("data-selected-id");
+
+                if (selected_id === 0 || selected_id === '0') { //is adding
+                    $("#txtUnitName").val("");
+                    $("#txtUnitSymbol").val("");
+                    $("#txtUnitMultiplier").val("");
+
+                    $("#txtUnitName").blur();
+                    $("#txtUnitSymbol").blur();
+                    $("#txtUnitMultiplier").blur();
+
+                    $("#viewAddUnits").attr("data-selected-id", 0);
+                }
+
+                $("#viewAddUnits").focus();
+
+                //$(".right > div:nth-child(1)").hide();
+            });
+
+            /*on math button click*/
+            $(".all-math-op div a").click(function () {
+                var content = $(this).text();
+
+                NSA.insertAtCaret(focused, content);
+            });
+
+            $("#txtNumStatement").focusin(function () {
+                focused = "txtNumStatement";
+            });
+
+            $("#txtNumFormulaString").focusin(function () {
+                focused = "txtNumFormulaString";
+            });
+
+            //initialize here something.
+>>>>>>> origin/master:physics/js/NSA.js
         },
         //some helper function
         doSomeStuff: function () {
@@ -656,6 +896,10 @@ var NSA = function () {
 
             NSA.resetParamEnv();
             NSA.resetUnitEnv();
+
+            $(".middle").hide();
+            $(".right").show();
+            $(".topics-section").show();
         },
         topicChanged: function () {
             //RESET NUMERICAL
@@ -666,6 +910,10 @@ var NSA = function () {
             $("span.selectedNumerical").html('..');
             $("#txtNumStatement").val('');
             $("#txtNumFormulaString").val('');
+
+            $(".middle").hide();
+            $(".numericals-section").show();
+
         },
         paramChanged: function () {
             // Do required changes when a selected param changes
@@ -674,22 +922,16 @@ var NSA = function () {
             // Do required changes when a selected unit changes
         },
         resetParamEnv: function () {
-            $("#tabParams").html('');
+            $("#tabParams .parambtn").detach(); //insted of removing all components, remove only the parambtns.
             //RESET PARAMETERS
-            $('#ddParams').empty();
-            $("#selectedParam").attr("data-selected-id", 0);
-            $("#selectedParam").html('Edit Parameter');
             $("#txtParamName").val('');
             $("#txtParamSymbol").val('');
             $("#txtParamValue").val('');
             $("#txtParamDefaultValue").val('');
         },
         resetUnitEnv: function () {
-            $("#tabUnits").html('');
+            $("#tabUnits.parambtn").detach(); //insted of removing all components, remove only the parambtns.
             //RESET UNITS
-            $('#ddUnits').empty();
-            $("#selectedUnit").attr("data-selected-id", 0);
-            $("#selectedUnit").html('Edit Unit');
             $("#txtUnitName").val('');
             $("#txtUnitSymbol").val('');
             $("#txtUnitMultiplier").val('');

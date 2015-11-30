@@ -652,7 +652,7 @@ var NSA = function () {
                 var unit = $('#tempUnit').attr('data-unit');
                 var displayParam = '{' + param + ', ' + unit + '}';
                 NSA.insertAtCaret('txtNumFormulaString', displayParam);
-                
+
                 var paramStr = '{' + param_id + ', ' + unit_id + '}';
             });
 
@@ -720,6 +720,10 @@ var NSA = function () {
                 var currentFormula = $("#txtNumFormulaString").val();
                 var content = $(this).text();
                 NSA.insertAtCaret("txtNumFormulaString", content);
+            });
+
+            $('#txtNumFormulaString').bind('input change propertychange', function () {
+                $(this).attr("data-formula", $(this).val());
             });
 
             //initialize here something.
