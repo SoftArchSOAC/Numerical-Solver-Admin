@@ -10,6 +10,7 @@
         <!--<link type="text/css" rel="stylesheet" href="css/bootstrap.css" />-->
         <!--Import materialize.css-->
         <link type="text/css" rel="stylesheet" href="css/materialize.css" media="screen,projection"/>
+        <link type="text/css" rel="stylesheet" href="css/site.css" media="screen,projection"/>
         <link type="text/css" rel="stylesheet" href="css/icon.css" />
 
         <script src="js/sweetalert2.min.js"></script> 
