@@ -4,6 +4,7 @@
 var NSA = function () {
 
     // private functions & variables
+    focused = "txtNumFormulaString";
 
     var myFunc = function (text) {
         alert(text);
@@ -746,11 +747,17 @@ var NSA = function () {
 
             /*on math button click*/
             $(".all-math-op div a").click(function () {
-                var currentFormula = $("#txtNumFormulaString").val();
                 var content = $(this).text();
 
-//                $("#txtNumFormulaString").val(currentFormula + content);
-                NSA.insertAtCaret("txtNumFormulaString", content);
+                NSA.insertAtCaret(focused, content);
+            });
+
+            $("#txtNumStatement").focusin(function () {
+                focused = "txtNumStatement";
+            });
+
+            $("#txtNumFormulaString").focusin(function () {
+                focused = "txtNumFormulaString";
             });
 
             //initialize here something.
