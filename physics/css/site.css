@@ -156,7 +156,7 @@
 }
 
 .tabParams{
-    //min-height: 276px;
+    /*min-height: 276px;*/
 }
 
 .dropdown-content{
@@ -189,7 +189,7 @@
 .middle{
     float: left;
     display: none;
-    //box-shadow: 2px 0 5px -2px rgba(0, 0, 0, 0.16), 5px 0 5px -2px rgba(0, 0, 0, 0.12);
+    /*box-shadow: 2px 0 5px -2px rgba(0, 0, 0, 0.16), 5px 0 5px -2px rgba(0, 0, 0, 0.12);*/
 }
 
 .separator{
