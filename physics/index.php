@@ -177,15 +177,11 @@
                                 <a class="waves-effect waves-light btn btn-small grid ">]</a>
                             </div>
                             <div class="input-field col s3 math-op">
-                                <a class="waves-effect waves-light btn btn-small grid">1</a>
-                                <a class="waves-effect waves-light btn btn-small grid">2</a>
-                                <a class="waves-effect waves-light btn btn-small grid">3</a>
-                                <a class="waves-effect waves-light btn btn-small grid">4</a>
-                                <a class="waves-effect waves-light btn btn-small grid">5</a>
-                                <a class="waves-effect waves-light btn btn-small grid">6</a>
-                                <a class="waves-effect waves-light btn btn-small grid">7</a>
-                                <a class="waves-effect waves-light btn btn-small grid">8</a>
-                                <a class="waves-effect waves-light btn btn-small grid">9</a>
+                                <?php
+                                    for($i=1;$i<10;$i++){
+                                ?>
+                                <a class="waves-effect waves-light btn btn-small grid"><?php echo $i;?></a>
+                                <?php } ?>
                                 <a class="waves-effect waves-light btn btn-small grid" style="visibility: hidden">0</a>
                                 <a class="waves-effect waves-light btn btn-small grid">0</a>
                             </div>
