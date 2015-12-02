@@ -1,0 +1,8 @@
+
+			Date : 30-11-15 11:11:47
+			File : 
+			line_no : 
+			USER IP : ::1
+			Error : Cannot add or update a child row: a foreign key constraint fails (`nsadb`.`chapters`, CONSTRAINT `chapters_ibfk_1` FOREIGN KEY (`app_id`) REFERENCES `apps` (`id`) ON DELETE CASCADE)
+			Query :  INSERT INTO chapters  (name,app_id )  VALUES("Chapter 1","3" ) 
+			------------------------------------------------------------

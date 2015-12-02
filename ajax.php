@@ -7,7 +7,7 @@ $action = $_POST['action'];
 if ($action == "add_chapter") {
     $chapter_name = $_POST['name'];
     $FIELDS = array("name", "app_id");
-    $VALUES = array($chapter_name, 3);
+    $VALUES = array($chapter_name, 1);
     $status = $clsNsa->addChapter($FIELDS, $VALUES);
     echo json_encode($status);
 } else if ($action == "delete_chapter") {
