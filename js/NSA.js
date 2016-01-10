@@ -790,7 +790,7 @@ var NSA = function () {
                 $('#tabUnits').addClass('wait');
 
                 var param_code = '{' + temp_param_id + ',' + temp_unit_id + '}';
-                NSA.insertAtCaret('txtNumFormulaString', param_code);
+                NSA.insertAtCaret((focused), param_code);
                 $("#txtNumFormulaString").attr("data-formula", param_code);
                 var display_param = param_code;
 
