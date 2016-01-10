@@ -13,7 +13,7 @@
         <link type="text/css" rel="stylesheet" href="css/site.css" media="screen,projection"/>
         <link type="text/css" rel="stylesheet" href="css/icon.css" />
 
-        <script src="js/sweetalert2.min.js"></script> 
+        <script src="js/sweetalert2.min.js"></script>
         <link rel="stylesheet" type="text/css" href="css/sweetalert2.css">
 
         <!--Let browser know website is optimized for mobile-->
@@ -138,11 +138,11 @@
                             <textarea id="txtNumStatement" class="materialize-textarea textarea"></textarea>
                             <label for="txtNumStatement">Statement</label>
                         </div>
-<!--                        <div class="input-field col s3">
-                            <button type="button" name="btnAddStatement" id="btnAddStatement" class="btn-floating btn-medium waves-effect waves-light red" title="Add Statement" >
-                                <i class="material-icons">add</i>
-                            </button>
-                        </div>-->
+                        <!--                        <div class="input-field col s3">
+                                                    <button type="button" name="btnAddStatement" id="btnAddStatement" class="btn-floating btn-medium waves-effect waves-light red" title="Add Statement" >
+                                                        <i class="material-icons">add</i>
+                                                    </button>
+                                                </div>-->
                     </div>
                 </div>
                 <!-- -------------------
@@ -156,13 +156,9 @@
                             <textarea id="txtNumFormulaString" class="materialize-textarea textarea"></textarea>
                             <label for="txtNumFormulaString">Formula String </label>
                         </div>
-<!--                        <div class="input-field col s3">
-                            <button type="button" name="btnAddFormula" id="btnAddFormula" class="btn-floating btn-medium waves-effect waves-light red" title="Add Formula String">
-                                <i class="material-icons">add</i>
-                            </button>
-                        </div>-->
+
                         <div class="input-field col s12 all-math-op">
-                            <div class="input-field col s4">
+                            <div class="input-field col s4 common-math-op">
                                 <a class="waves-effect waves-light btn btn-small grid ">+</a>
                                 <a class="waves-effect waves-light btn btn-small grid ">-</a>
                                 <a class="waves-effect waves-light btn btn-small grid ">*</a>
@@ -176,7 +172,7 @@
                                 <a class="waves-effect waves-light btn btn-small grid ">[</a>
                                 <a class="waves-effect waves-light btn btn-small grid ">]</a>
                             </div>
-                            <div class="input-field col s2 math-op">
+                            <div class="input-field col s3 math-op common-math-op">
                                 <a class="waves-effect waves-light btn btn-small grid">1</a>
                                 <a class="waves-effect waves-light btn btn-small grid">2</a>
                                 <a class="waves-effect waves-light btn btn-small grid">3</a>
@@ -189,7 +185,7 @@
                                 <a class="waves-effect waves-light btn btn-small grid" style="visibility: hidden">0</a>
                                 <a class="waves-effect waves-light btn btn-small grid">0</a>
                             </div>
-                            <div class="input-field col s6 math-func">
+                            <div class="input-field col s5 math-func">
                                 <a class="waves-effect waves-light grid">abs</a>
                                 <a class="waves-effect waves-light grid">sqrt</a>
                                 <a class="waves-effect waves-light grid">cbrt</a>

@@ -508,7 +508,6 @@ var NSA = function () {
             //swal({   title: 'Are you sure?',   text: 'You will not be able to recover this imaginary file!',   type: 'warning',   showCancelButton: true,   confirmButtonColor: '#3085d6',   cancelButtonColor: '#d33',   confirmButtonText: 'Yes, delete it!',   closeOnConfirm: false }, function() {   swal(     'Deleted!',     'Your file has been deleted.',     'success'   ); });
             //swal({   title: 'Are you sure?',   text: 'You will not be able to recover this imaginary file!',   type: 'warning',   showCancelButton: true,   confirmButtonColor: '#3085d6',   cancelButtonColor: '#d33',   confirmButtonText: 'Yes, delete it!',   cancelButtonText: 'No, cancel plx!',   confirmButtonClass: 'confirm-class',   cancelButtonClass: 'cancel-class',   closeOnConfirm: false,   closeOnCancel: false }, function(isConfirm) {   if (isConfirm) {     swal(       'Deleted!',       'Your file has been deleted.',       'success'     );   } else {     swal(       'Cancelled',       'Your imaginary file is safe :)',       'error'     );   } });
 
-
             /*
              * CHAPTERS :
              */
@@ -627,7 +626,6 @@ var NSA = function () {
 
             });
 
-
             $("#btnAddStatement").click(function () {
                 var num_statement = $("#txtNumStatement").val();
                 var numerical_id = $("#selectedNumerical").attr("data-selected-id");
@@ -650,7 +648,7 @@ var NSA = function () {
 
 
             /*
-             *  ADD / UPDATE FORMULA & STATEMENT 
+             *  ADD / UPDATE FORMULA & STATEMENT
              */
             $("#btnUpdateQuestion").click(function () {
 
@@ -763,9 +761,7 @@ var NSA = function () {
 
             $("#tabParams").on("click", "a", function (event) {
                 $this = $(this);
-                //$('#tempParam').html($this.text());
-//                $('#tempParam').attr('data-param', $this.text());
-//                $('#tempParam').attr('data-param-id', $this.attr('data-id'));
+
                 temp_param = $this.text();
                 temp_param_id = $this.attr('data-id');
 
@@ -776,7 +772,6 @@ var NSA = function () {
                 $('.middle').addClass('wait');
                 $('#tabUnits').removeClass('wait');
 
-//                var tempUnit = $('#tempUnit').attr('data-unit');
                 if (typeof temp_unit === typeof undefined && temp_unit === false || temp_unit == null || temp_unit === null) {
                     $('#tabUnits').pulsate({color: "#bb2413", reach: 20, repeat: 5, speed: 1, glow: false});
                 }
@@ -794,19 +789,10 @@ var NSA = function () {
                 $('.middle').removeClass('wait');
                 $('#tabUnits').addClass('wait');
 
-                var display_param = '{' + temp_param + '}';
-                NSA.insertAtCaret('txtNumFormulaString', display_param);
-
                 var param_code = '{' + temp_param_id + ',' + temp_unit_id + '}';
-                var cur_formula = $("#txtNumFormulaString").attr("data-formula");
-                cur_formula = (cur_formula === undefined) ? '' : cur_formula;
-                $("#txtNumFormulaString").attr("data-formula", cur_formula + param_code);
-
-//                var pos = NSA.getCaretPos("txtNumFormulaString");
-//                NSA.insertAtCaret('txtNumFormulaString', display_param);
-//                var cur_formula = $("#txtNumFormulaString").attr("data-formula");
-//                var new_formula = [cur_formula.slice(0, pos), param_code, cur_formula.slice(pos)].join('');
-//                $("#txtNumFormulaString").attr("data-formula", new_formula);
+                NSA.insertAtCaret('txtNumFormulaString', param_code);
+                $("#txtNumFormulaString").attr("data-formula", param_code);
+                var display_param = param_code;
 
                 $("#tabParams a, #tabUnits a").removeClass('selectedGrid');
             });
@@ -865,6 +851,15 @@ var NSA = function () {
                 }
             });
 
+            $(".unitParam").on("mousedown", function (event) {
+                $this = $(this);
+                $("#tabParams a").removeClass('selectedGrid');
+                $("#tabParams a, #tabUnits a").removeClass('selectedGrid');
+                $('#tabUnits').addClass('wait');
+                $('.left').removeClass('wait');
+                $('.middle').removeClass('wait');
+            });
+
             $("#viewUnits").click(function () {
                 $("#viewAddUnits").attr("data-selected-id", 0);
                 $("#viewAddUnits").html("Add");
@@ -895,12 +890,26 @@ var NSA = function () {
             });
 
             /*on math button click*/
-            $(".all-math-op div a").click(function () {
+            $(".common-math-op a").click(function () {
                 var content = $(this).text();
+                if (content == '(') {
+                    content += ')';
+                } else if (content == '{') {
+                    content += '}';
+                } else if (content == '[') {
+                    content += ']';
+                }
                 NSA.insertAtCaret(focused, content);
-
                 $("#txtNumFormulaString").change();
-//                $("#txtNumFormulaString").attr("data-formula", content).trigger('change');
+            });
+
+            $(".math-func a").click(function () {
+                var content = $(this).text();
+                NSA.insertAtCaret(focused, ' ' + content + '() ');
+                $("#txtNumFormulaString").change();
+                var pos = NSA.getCaretPos("txtNumFormulaString");
+                $("#txtNumFormulaString").prop("selectionStart", (pos - 2));
+                $("#txtNumFormulaString").prop("selectionEnd", (pos - 2));
             });
 
             $("#txtNumStatement").focusin(function () {

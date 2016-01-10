@@ -6,3 +6,164 @@
 			Error : Cannot add or update a child row: a foreign key constraint fails (`nsadb`.`chapters`, CONSTRAINT `chapters_ibfk_1` FOREIGN KEY (`app_id`) REFERENCES `apps` (`id`) ON DELETE CASCADE)
 			Query :  INSERT INTO chapters  (name,app_id )  VALUES("Chapter 1","3" ) 
 			------------------------------------------------------------
+			Date : 31-12-15 08:12:56
+			File : 
+			line_no : 
+			USER IP : ::1
+			Error : Table 'nsadb.chapters' doesn't exist
+			Query : SELECT * FROM chapters ORDER BY name
+			------------------------------------------------------------
+			Date : 31-12-15 08:12:56
+			File : 
+			line_no : 
+			USER IP : ::1
+			Error : Table 'nsadb.topics' doesn't exist
+			Query : SELECT * FROM topics ORDER BY name
+			------------------------------------------------------------
+			Date : 31-12-15 08:12:57
+			File : 
+			line_no : 
+			USER IP : ::1
+			Error : Table 'nsadb.topics' doesn't exist
+			Query : SELECT * FROM topics WHERE chapter_id=6 ORDER BY name
+			------------------------------------------------------------
+			Date : 31-12-15 08:12:57
+			File : 
+			line_no : 
+			USER IP : ::1
+			Error : Table 'nsadb.units' doesn't exist
+			Query : SELECT * FROM units WHERE chapter_id=6 ORDER BY name
+			------------------------------------------------------------
+			Date : 31-12-15 08:12:57
+			File : 
+			line_no : 
+			USER IP : ::1
+			Error : Table 'nsadb.chapters' doesn't exist
+			Query : SELECT * FROM chapters ORDER BY name
+			------------------------------------------------------------
+			Date : 31-12-15 08:12:57
+			File : 
+			line_no : 
+			USER IP : ::1
+			Error : Table 'nsadb.parameters' doesn't exist
+			Query : SELECT * FROM parameters WHERE chapter_id=6 ORDER BY name
+			------------------------------------------------------------
+			Date : 31-12-15 08:12:57
+			File : 
+			line_no : 
+			USER IP : ::1
+			Error : Table 'nsadb.numericals' doesn't exist
+			Query : SELECT num.id, num.identifier AS num_id, num.statement, num.solution, f.identifier AS formula_id, f.string FROM numericals AS num LEFT JOIN formulas AS f ON num.id = f.numerical_id WHERE topic_id=4 ORDER BY f.identifier
+			------------------------------------------------------------
+			Date : 31-12-15 08:12:06
+			File : 
+			line_no : 
+			USER IP : ::1
+			Error : Table 'nsadb.chapters' doesn't exist
+			Query : SELECT * FROM chapters ORDER BY name
+			------------------------------------------------------------
+			Date : 31-12-15 08:12:06
+			File : 
+			line_no : 
+			USER IP : ::1
+			Error : Table 'nsadb.topics' doesn't exist
+			Query : SELECT * FROM topics ORDER BY name
+			------------------------------------------------------------
+			Date : 31-12-15 08:12:06
+			File : 
+			line_no : 
+			USER IP : ::1
+			Error : Table 'nsadb.chapters' doesn't exist
+			Query : SELECT * FROM chapters ORDER BY name
+			------------------------------------------------------------
+			Date : 31-12-15 08:12:06
+			File : 
+			line_no : 
+			USER IP : ::1
+			Error : Table 'nsadb.parameters' doesn't exist
+			Query : SELECT * FROM parameters WHERE chapter_id=6 ORDER BY name
+			------------------------------------------------------------
+			Date : 31-12-15 08:12:06
+			File : 
+			line_no : 
+			USER IP : ::1
+			Error : Table 'nsadb.units' doesn't exist
+			Query : SELECT * FROM units WHERE chapter_id=6 ORDER BY name
+			------------------------------------------------------------
+			Date : 31-12-15 08:12:06
+			File : 
+			line_no : 
+			USER IP : ::1
+			Error : Table 'nsadb.topics' doesn't exist
+			Query : SELECT * FROM topics WHERE chapter_id=6 ORDER BY name
+			------------------------------------------------------------
+			Date : 31-12-15 08:12:06
+			File : 
+			line_no : 
+			USER IP : ::1
+			Error : Table 'nsadb.numericals' doesn't exist
+			Query : SELECT num.id, num.identifier AS num_id, num.statement, num.solution, f.identifier AS formula_id, f.string FROM numericals AS num LEFT JOIN formulas AS f ON num.id = f.numerical_id WHERE topic_id=4 ORDER BY f.identifier
+			------------------------------------------------------------
+			Date : 31-12-15 08:12:22
+			File : 
+			line_no : 
+			USER IP : ::1
+			Error : Table 'nsadb.chapters' doesn't exist
+			Query :  INSERT INTO chapters  (name,app_id )  VALUES("Chapter - 1","1" ) 
+			------------------------------------------------------------
+			Date : 31-12-15 08:12:46
+			File : 
+			line_no : 
+			USER IP : ::1
+			Error : Table 'nsadb.parameters' doesn't exist
+			Query :  INSERT INTO parameters  (name,symbol,value,default_value,chapter_id )  VALUES("e","w","2","3","6" ) 
+			------------------------------------------------------------
+			Date : 31-12-15 08:12:49
+			File : 
+			line_no : 
+			USER IP : ::1
+			Error : Table 'nsadb.chapters' doesn't exist
+			Query : SELECT * FROM chapters ORDER BY name
+			------------------------------------------------------------
+			Date : 31-12-15 08:12:49
+			File : 
+			line_no : 
+			USER IP : ::1
+			Error : Table 'nsadb.topics' doesn't exist
+			Query : SELECT * FROM topics ORDER BY name
+			------------------------------------------------------------
+			Date : 31-12-15 08:12:49
+			File : 
+			line_no : 
+			USER IP : ::1
+			Error : Table 'nsadb.chapters' doesn't exist
+			Query : SELECT * FROM chapters ORDER BY name
+			------------------------------------------------------------
+			Date : 31-12-15 08:12:49
+			File : 
+			line_no : 
+			USER IP : ::1
+			Error : Table 'nsadb.topics' doesn't exist
+			Query : SELECT * FROM topics WHERE chapter_id=6 ORDER BY name
+			------------------------------------------------------------
+			Date : 31-12-15 08:12:49
+			File : 
+			line_no : 
+			USER IP : ::1
+			Error : Table 'nsadb.units' doesn't exist
+			Query : SELECT * FROM units WHERE chapter_id=6 ORDER BY name
+			------------------------------------------------------------
+			Date : 31-12-15 08:12:49
+			File : 
+			line_no : 
+			USER IP : ::1
+			Error : Table 'nsadb.parameters' doesn't exist
+			Query : SELECT * FROM parameters WHERE chapter_id=6 ORDER BY name
+			------------------------------------------------------------
+			Date : 31-12-15 08:12:49
+			File : 
+			line_no : 
+			USER IP : ::1
+			Error : Table 'nsadb.numericals' doesn't exist
+			Query : SELECT num.id, num.identifier AS num_id, num.statement, num.solution, f.identifier AS formula_id, f.string FROM numericals AS num LEFT JOIN formulas AS f ON num.id = f.numerical_id WHERE topic_id=4 ORDER BY f.identifier
+			------------------------------------------------------------
