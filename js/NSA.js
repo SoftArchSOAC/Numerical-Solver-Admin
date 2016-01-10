@@ -5,7 +5,6 @@ var NSA = function () {
 
     // private functions & variables
     focused = "txtNumFormulaString";
-    temp_param = temp_unit = temp_param_id = temp_unit_id = 0;
 
     var myFunc = function (text) {
         alert(text);
@@ -762,26 +761,17 @@ var NSA = function () {
             $("#tabParams").on("click", "a", function (event) {
                 $this = $(this);
 
-                temp_param = $this.text();
-                temp_param_id = $this.attr('data-id');
-
                 $("#tabParams a").removeClass('selectedGrid');
                 $this.addClass('selectedGrid');
 
                 $('.left').addClass('wait');
                 $('.middle').addClass('wait');
                 $('#tabUnits').removeClass('wait');
-
-                if (typeof temp_unit === typeof undefined && temp_unit === false || temp_unit == null || temp_unit === null) {
-                    $('#tabUnits').pulsate({color: "#bb2413", reach: 20, repeat: 5, speed: 1, glow: false});
-                }
             });
 
             $("#tabUnits").on("click", "a", function (event) {
                 $this = $(this);
-
-                temp_unit = $this.text();
-                temp_unit_id = $this.attr('data-id');
+                $thisParm = $('#tabParams a.selectedGrid');
 
                 $("#tabUnits a").removeClass('selectedGrid');
                 $this.addClass('selectedGrid');
@@ -789,10 +779,7 @@ var NSA = function () {
                 $('.middle').removeClass('wait');
                 $('#tabUnits').addClass('wait');
 
-                var param_code = '{' + temp_param_id + ',' + temp_unit_id + '}';
-                NSA.insertAtCaret((focused), param_code);
-                $("#txtNumFormulaString").attr("data-formula", param_code);
-                var display_param = param_code;
+                NSA.insertAtCaret((focused), $thisParm.text());
 
                 $("#tabParams a, #tabUnits a").removeClass('selectedGrid');
             });
@@ -920,10 +907,6 @@ var NSA = function () {
                 focused = "txtNumFormulaString";
             });
 
-            $('#txtNumFormulaString').bind('input change propertychange', function (e) {
-                $(this).attr("data-formula", $(this).val());
-            });
-
             //initialize here something.
         },
         //some helper function
@@ -1048,8 +1031,7 @@ var NSA = function () {
             var txtarea = document.getElementById(areaId);
             var scrollPos = txtarea.scrollTop;
             var strPos = 0;
-            var br = ((txtarea.selectionStart || txtarea.selectionStart == '0') ?
-                    "ff" : (document.selection ? "ie" : false));
+            var br = ((txtarea.selectionStart || txtarea.selectionStart == '0') ? "ff" : (document.selection ? "ie" : false));
             if (br == "ie") {
                 txtarea.focus();
                 var range = document.selection.createRange();
@@ -1083,8 +1065,7 @@ var NSA = function () {
             var txtarea = document.getElementById(areaId);
             var scrollPos = txtarea.scrollTop;
             var strPos = 0;
-            var br = ((txtarea.selectionStart || txtarea.selectionStart == '0') ?
-                    "ff" : (document.selection ? "ie" : false));
+            var br = ((txtarea.selectionStart || txtarea.selectionStart == '0') ? "ff" : (document.selection ? "ie" : false));
             if (br == "ie") {
                 txtarea.focus();
                 var range = document.selection.createRange();
