@@ -20,7 +20,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
     <body>
-        <div class="row">
+        <div style="padding-bottom: 0; margin-bottom: 0;" class="row">
             <div class="col s3 left">
                 <div align="center">
                     <!-- BEGIN SECTION: CHAPTERS -->
@@ -224,23 +224,27 @@
                         <div id="tabAddParam" class="col s12 tabParams unitParam">
                             <form class="col s12">
                                 <div class="row">
-                                    <div class="input-field col s6">
+                                    <div class="input-field col s12">
                                         <input id="txtParamName" type="text" class="validate">
                                         <label for="txtParamName">Name</label>
-                                    </div>
-                                    <div class="input-field col s6">
-                                        <input id="txtParamSymbol" type="text" class="validate">
-                                        <label for="txtParamSymbol">Symbol</label>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="input-field col s6">
-                                        <input id="txtParamValue" type="text" class="validate">
-                                        <label for="txtParamValue">Min</label>
+                                        <input id="txtParamSymbol" type="text" class="validate">
+                                        <label for="txtParamSymbol">Symbol</label>
                                     </div>
+                                    <!--
+                                        Following div element is deprecated.
+                                        But dont delete as it is binded to database.
+                                    -->
+                                    <!--<div class="input-field col s6">-->
+                                    <input id="txtParamValue" type="hidden" class="validate">
+                                    <!--<label for="txtParamValue">Min</label>-->
+                                    <!--</div>-->
                                     <div class="input-field col s6">
                                         <input id="txtParamDefaultValue" type="text" class="validate">
-                                        <label for="txtParamDefaultValue">Max</label>
+                                        <label for="txtParamDefaultValue">Default</label>
                                     </div>
                                 </div>
                                 <div class="input-field row" style="float: right;">
