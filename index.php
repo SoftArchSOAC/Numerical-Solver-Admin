@@ -21,10 +21,10 @@
     </head>
     <body>
         <div style="padding-bottom: 0; margin-bottom: 0;" class="row">
-            <div class="col s3 left">
+            <div class="col s3 left z-depth-0">
                 <div align="center">
                     <!-- BEGIN SECTION: CHAPTERS -->
-                    <div class="row chapters-section">
+                    <div class="row chapters-section z-depth-1">
                         <div class="col s12">
                             <ul class="tabs margin-bottom-20">
                                 <li class="tab col s3"><a id="viewChapters" class="active" href="#tabChapters">Chapters</a></li>
@@ -32,7 +32,7 @@
                             </ul>
                         </div>
                         <div id="tabChapters" class="col s12 tabChapters">
-                            <a id="selectedChapter" data-selected-id="0" class='dropdown-button btn' href='#' data-beloworigin="true" data-activates='ddChapters'>Select Chapter</a>
+                            <a id="selectedChapter" data-selected-id="0" class='dropdown-button btn z-depth-1' href='#' data-beloworigin="true" data-activates='ddChapters'>Select Chapter</a>
                             <ul id='ddChapters' class='dropdown-content'>
                             </ul>
                             <p id="noChapMsg">Add chapters to see them here.</p>
@@ -56,10 +56,8 @@
                     <!-- -------------------
                     END SECTION: CHAPTERS -->
 
-                    <hr class="separator"/>
-
                     <!-- BEGIN SECTION: TOPICS -->
-                    <div class="row topics-section">
+                    <div class="row topics-section z-depth-1">
                         <div class="col s12">
                             <ul class="tabs margin-bottom-20">
                                 <li class="tab col s3"><a id="viewTopics" class="active" href="#tabTopics">Topics</a></li>
@@ -91,10 +89,8 @@
                     <!-- -------------------
                     END SECTION: TOPICS -->
 
-                    <hr class="separator numericals-section"/>
-
                     <!-- BEGIN SECTION: NUMERICALS -->
-                    <div class="row numericals-section">
+                    <div class="row numericals-section z-depth-1">
                         <div class="col s12">
                             <ul class="tabs margin-bottom-20">
                                 <li class="tab col s3"><a id="viewNumericals" class="active" href="#tabNumericals">Numericals</a></li>
@@ -129,10 +125,13 @@
                 </div>
             </div>
 
-            <div class="col s6 middle">
+            <div class="col s6 middle z-depth-2">
+                <div align="center">
+                    <h5><span class="selectedNumerical theme-color">..</span></h5>
+                    <hr style="margin-bottom: 30px; width: 94%;">
+                </div>
                 <!-- BEGIN SECTION: STATEMENTS -->
                 <div class="container-fluid margin-left-30 margin-bottom-50 ">
-                    <h5>Statement For <span class="selectedNumerical theme-color">..</span></h5>
                     <div class="row">
                         <div class="input-field col s11">
                             <textarea id="txtNumStatement" class="materialize-textarea textarea"></textarea>
@@ -150,11 +149,10 @@
 
                 <!-- BEGIN SECTION: FORMULA -->
                 <div class="container-fluid margin-left-30 margin-bottom-50">
-                    <h5>Formula String For <span class="selectedNumerical theme-color">..</span></h5>
                     <div class="row">
                         <div class="input-field col s11">
                             <textarea id="txtNumFormulaString" class="materialize-textarea textarea"></textarea>
-                            <label for="txtNumFormulaString">Formula String </label>
+                            <label for="txtNumFormulaString">Formula </label>
                         </div>
 
                         <div class="input-field col s12 all-math-op">
@@ -186,30 +184,30 @@
                                 <a class="waves-effect waves-light btn btn-small grid">0</a>
                             </div>
                             <div class="input-field col s5 math-func">
-                                <a class="waves-effect waves-light grid">abs</a>
-                                <a class="waves-effect waves-light grid">sqrt</a>
-                                <a class="waves-effect waves-light grid">cbrt</a>
-                                <a class="waves-effect waves-light grid">ceil</a>
-                                <a class="waves-effect waves-light grid">floor</a>
-                                <a class="waves-effect waves-light grid">exp</a>
-                                <a class="waves-effect waves-light grid">log</a>
-                                <a class="waves-effect waves-light grid">log10</a>
-                                <a class="waves-effect waves-light grid">log2</a>
-                                <a class="waves-effect waves-light grid">sin</a>
-                                <a class="waves-effect waves-light grid">cos</a>
-                                <a class="waves-effect waves-light grid">tan</a>
+                                <a class="waves-effect waves-light btn grid">abs</a>
+                                <a class="waves-effect waves-light btn grid">sqrt</a>
+                                <a class="waves-effect waves-light btn grid">cbrt</a>
+                                <a class="waves-effect waves-light btn grid">ceil</a>
+                                <a class="waves-effect waves-light btn grid">floor</a>
+                                <a class="waves-effect waves-light btn grid">exp</a>
+                                <a class="waves-effect waves-light btn grid">log</a>
+                                <a class="waves-effect waves-light btn grid">log10</a>
+                                <a class="waves-effect waves-light btn grid">log2</a>
+                                <a class="waves-effect waves-light btn grid">sin</a>
+                                <a class="waves-effect waves-light btn grid">cos</a>
+                                <a class="waves-effect waves-light btn grid">tan</a>
                             </div>
                         </div>
                     </div>
-                    <a class="waves-effect waves-light btn margin-top-40 margin-right-40" id="btnUpdateQuestion">Add/Update</a>
+                    <a class="waves-effect waves-light btn margin-top-40 margin-right-40" id="btnUpdateQuestion">Add / Update</a>
                 </div>
                 <!-- -------------------
                 END SECTION: FORMULA -->
             </div>
 
-            <div class="col s3 right">
+            <div class="col s3 right z-depth-0">
                 <!-- BEGIN SECTION: PARAMETERS -->
-                <div class="container params">
+                <div class="params z-depth-1">
                     <div class="row">
                         <div class="col s12">
                             <span id="tempParam"></span> <span id="tempUnit"></span>
@@ -258,13 +256,12 @@
                             </form>
                         </div>
                     </div>
-                    <hr class="separator"/>
                 </div>
                 <!-- -------------------
                 END SECTION: PARAMETERS -->
 
                 <!-- BEGIN SECTION: UNITS -->
-                <div class="container">
+                <div class="units z-depth-1">
                     <div class="row">
                         <div class="col s12">
                             <ul class="tabs margin-bottom-20">

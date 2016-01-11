@@ -779,7 +779,8 @@ var NSA = function () {
                 $('.middle').removeClass('wait');
                 $('#tabUnits').addClass('wait');
 
-                var textToPrint = "'" + $thisParm.text() + " " + $this.text() + "' ";
+                var textToPrint = "'" + $thisParm.text() +
+                        ($this.text() === "N.A." ? "" : " " + $this.text()) + "' ";
                 NSA.insertAtCaret((focused), textToPrint);
 
                 $("#tabParams a, #tabUnits a").removeClass('selectedGrid');

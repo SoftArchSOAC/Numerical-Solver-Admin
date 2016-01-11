@@ -165,30 +165,27 @@
 .left, .middle, .right{
     min-height: 100vh;
     min-width: 320px;
-    padding-top: 20px !important;
-}
-
-.left{
-    box-shadow: 0 0px 5px 5px rgba(0, 0, 0, 0.16), 0 0px 0px 0 rgba(0, 0, 0, 0.12);
-}
-
-.right{
-    box-shadow: 0 0px 5px 5px rgba(0, 0, 0, 0.16), 0 0px 0px 0 rgba(0, 0, 0, 0.12);
-    display: none;
+    padding-top: 8px !important;
 }
 
 .left a, .left li a, .right a, .right li a, .middle a, .middle li a{
     display: block;
-    font-size: 1rem;
+    font-size: 1.2rem;
     height: 64px;
     line-height: 64px;
     padding: 0 15px;
 }
 
 .middle{
-    float: left;
-    display: none;
-    //box-shadow: 2px 0 5px -2px rgba(0, 0, 0, 0.16), 5px 0 5px -2px rgba(0, 0, 0, 0.12);
+    border-top: 2px solid #26a69d;
+    border-left : 2px solid #26a69d;
+    border-right: 2px solid #26a69d;
+}
+
+h5 span {
+    text-transform: uppercase;
+    text-transform: fullwidth;
+    font-size: larger;
 }
 
 .separator{
@@ -205,6 +202,7 @@
     height: 30px !important;
     line-height: 30px !important;
     padding: 0 !important;
+    margin: 2px;
 }
 
 .grid{
@@ -255,10 +253,10 @@ div.params{
 
 .math-func > a{
     text-transform: none;
-
+    margin: 2px 2px 2px 2px;
 }
 
-.topics-section, .numericals-section {
+.topics-section, .numericals-section, .middle, .right {
     display: none;
 }
 
@@ -280,4 +278,37 @@ div.params{
 .wait{
     opacity: 0.5;
     pointer-events: none;
+}
+
+.chapters-section, .topics-section, .numericals-section, .params, .units {
+    margin: 20px 0px 30px 0px;
+    background-color: white;
+}
+
+.units {
+    min-height: 260px;
+    margin-bottom: 10px;
+}
+
+.numericals-section{
+    padding-bottom: 30px;
+    margin-bottom: 10px;
+}
+
+.right, .left {
+    background-color: #26a69d;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    bottom: 0;
+}
+
+.btn {
+    background: whitesmoke;
+    color: #26a69d;
+    border-bottom: 2px solid #26a69d;
+}
+
+#btnUpdateQuestion {
+    background: #26a69d;
+    color: white;
 }
